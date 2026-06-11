@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inkline Studio — Calm books, paper journals, quiet planners</title>
+<meta name="description" content="Inkline Studio designs calm paperback journals and minimal Notion templates. For people who'd rather think than be optimised. Designed in the United Kingdom.">
+<meta name="p:domain_verify" content="e9b45455ac59b5a760ae5aa92aeabd86"/>
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1B2240;
+    --navy-warm: #21284A;
+    --cream: #F5EFE0;
+    --cream-soft: #EBE2CD;
+    --rule: rgba(245, 239, 224, 0.4);
+    --rule-dark: rgba(27, 34, 64, 0.3);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Lora', Georgia, serif;
+    color: var(--navy);
+    background: var(--cream);
+    line-height: 1.6;
+    font-size: 18px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  section { padding: 100px 24px; position: relative; }
+  .container { max-width: 960px; margin: 0 auto; }
+  .narrow { max-width: 640px; margin: 0 auto; }
+  .wordmark {
+    font-size: 14px; letter-spacing: 0.3em; text-transform: uppercase;
+    font-weight: 400; text-align: center;
+  }
+  .wordmark::after {
+    content: ''; display: block; width: 60px; height: 1px;
+    background: currentColor; margin: 12px auto 0; opacity: 0.6;
+  }
+  .rule { width: 80px; height: 1px; background: currentColor; margin: 32px auto; opacity: 0.4; }
+  .hedera { font-style: italic; font-size: 28px; text-align: center; margin: 24px auto; opacity: 0.7; }
+  h1, h2, h3 { font-weight: 400; }
+  h1 {
+    font-size: clamp(36px, 6vw, 64px); line-height: 1.15;
+    font-style: italic; text-align: center; margin: 32px 0;
+  }
+  h2 {
+    font-size: clamp(28px, 4vw, 44px); line-height: 1.2;
+    font-style: italic; text-align: center; margin-bottom: 24px;
+  }
+  h3 { font-size: 22px; line-height: 1.3; font-style: italic; }
+  p { margin: 1em 0; }
+  p.lead {
+    font-size: 22px; line-height: 1.5; text-align: center;
+    font-style: italic; opacity: 0.95;
+  }
+  .btn {
+    display: inline-block; padding: 14px 36px; font-family: inherit;
+    font-size: 14px; letter-spacing: 0.15em; text-transform: uppercase;
+    text-decoration: none; border: 1px solid currentColor;
+    background: transparent; transition: all 0.2s ease; cursor: pointer;
+  }
+  .btn:hover { opacity: 0.7; }
+  .btn-primary { background: var(--cream); color: var(--navy); border: 1px solid var(--cream); }
+  .btn-primary:hover { background: transparent; color: var(--cream); opacity: 1; }
+  .btn-on-cream { background: var(--navy); color: var(--cream); border: 1px solid var(--navy); }
+  .btn-on-cream:hover { background: transparent; color: var(--navy); opacity: 1; }
+
+  /* HERO */
+  .hero {
+    background: var(--navy); color: var(--cream);
+    min-height: 100vh; display: flex; flex-direction: column;
+    justify-content: center; text-align: center; padding: 80px 24px;
+  }
+  .hero .wordmark { color: var(--cream); margin-bottom: 32px; }
+  .hero h1 { color: var(--cream); }
+  .hero p.lead { color: var(--cream-soft); max-width: 540px; margin: 24px auto 48px; }
+  .hero .hedera { color: var(--cream); margin-top: 80px; }
+
+  /* BOOKS */
+  .books { background: var(--cream); color: var(--navy); }
+  .books .section-label {
+    text-align: center; font-size: 13px; letter-spacing: 0.25em;
+    text-transform: uppercase; opacity: 0.6; margin-bottom: 12px;
+  }
+  .books-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 60px 40px; margin-top: 60px;
+  }
+  .books-grid-2 {
+    display: grid; grid-template-columns: repeat(2, 1fr);
+    gap: 60px 40px; margin-top: 60px;
+  }
+  .books-grid-4 {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 60px 40px; margin-top: 60px;
+  }
+  .book { text-align: center; }
+  .book-cover {
+    width: 100%; aspect-ratio: 2/3; background: var(--navy-warm);
+    overflow: hidden; margin-bottom: 24px;
+    box-shadow: 0 4px 20px rgba(27, 34, 64, 0.1);
+    position: relative;
+  }
+  .book-cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .book-cover.clickable {
+    cursor: pointer;
+    transition: box-shadow 0.3s ease;
+  }
+  .book-cover.clickable:hover {
+    box-shadow: 0 8px 32px rgba(27, 34, 64, 0.2);
+  }
+  .book-cover.clickable img {
+    transition: transform 0.4s ease;
+  }
+  .book-cover.clickable:hover img {
+    transform: scale(1.03);
+  }
+  /* Peek hint overlay */
+  .peek-hint {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    background: linear-gradient(transparent, rgba(27,34,64,0.82));
+    padding: 28px 12px 14px;
+    display: flex; align-items: center; justify-content: center; gap: 7px;
+    opacity: 0; transition: opacity 0.25s ease;
+    pointer-events: none;
+  }
+  .book-cover.clickable:hover .peek-hint { opacity: 1; }
+  .peek-hint span {
+    color: var(--cream); font-size: 10px;
+    letter-spacing: 0.2em; text-transform: uppercase;
+  }
+  .book h3 { font-style: italic; font-size: 19px; margin-bottom: 4px; }
+  .book .meta { font-size: 13px; letter-spacing: 0.05em; opacity: 0.55; margin: 4px 0 12px; }
+  .book a {
+    color: var(--navy); text-decoration: none; font-size: 13px;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    border-bottom: 1px solid currentColor; padding-bottom: 2px;
+    transition: opacity 0.2s ease;
+  }
+  .book a:hover { opacity: 0.6; }
+
+  /* ABOUT */
+  .about { background: var(--navy); color: var(--cream); }
+  .about .wordmark { color: var(--cream); }
+  .about h2 { color: var(--cream); }
+  .about p { color: var(--cream-soft); font-size: 19px; line-height: 1.7; }
+  .about .hedera { color: var(--cream); }
+
+  /* FOR TEAMS */
+  .for-teams { background: var(--cream); color: var(--navy); }
+  .for-teams h2 { color: var(--navy); }
+  .for-teams p { font-size: 18px; line-height: 1.7; }
+  .for-teams .center { text-align: center; }
+  .for-teams a.email {
+    display: inline-block; margin-top: 24px; color: var(--navy);
+    text-decoration: none; font-style: italic; font-size: 20px;
+    border-bottom: 1px solid currentColor; padding-bottom: 4px;
+  }
+
+  /* NEWSLETTER */
+  .newsletter { background: var(--navy); color: var(--cream); text-align: center; }
+  .newsletter h2 { color: var(--cream); }
+  .newsletter p { color: var(--cream-soft); }
+  .newsletter .form-area {
+    margin-top: 40px; padding: 32px; border: 1px solid var(--rule);
+    max-width: 480px; margin-left: auto; margin-right: auto;
+  }
+  .newsletter .form-area p { font-size: 15px; }
+  .newsletter .form-area a:not(.btn) { color: var(--cream); }
+
+  /* FOOTER */
+  footer {
+    background: var(--cream); color: var(--navy);
+    padding: 60px 24px 40px; text-align: center;
+    border-top: 1px solid var(--rule-dark);
+  }
+  footer .wordmark { font-size: 12px; opacity: 0.7; }
+  footer .footer-meta { margin-top: 24px; font-size: 13px; opacity: 0.55; }
+  footer .footer-meta a { color: var(--navy); text-decoration: none; margin: 0 8px; }
+  footer .footer-meta a:hover { text-decoration: underline; }
+
+  /* Publisher Tabs */
+  .pub-tabs {
+    display: flex; justify-content: center; gap: 0;
+    border-bottom: 1px solid var(--rule-dark); margin: 48px 0 0;
+  }
+  .pub-tab {
+    display: flex; flex-direction: column; align-items: center; gap: 6px;
+    font-family: 'Lora', Georgia, serif; font-size: 13px;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    background: none; border: none; border-bottom: 2px solid transparent;
+    color: var(--navy); padding: 14px 28px; cursor: pointer;
+    opacity: 0.45; transition: opacity 0.2s ease, border-color 0.2s ease;
+    white-space: nowrap; margin-bottom: -1px;
+  }
+  .pub-tab:hover { opacity: 0.8; }
+  .pub-tab.active { opacity: 1; border-bottom: 2px solid var(--navy); }
+  .pub-tab.active img { opacity: 1 !important; }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+  .tab-desc {
+    text-align: center; font-style: italic; font-size: 17px;
+    opacity: 0.65; margin: 32px auto 0; max-width: 540px;
+  }
+  .coming-soon {
+    font-size: 12px; letter-spacing: 0.15em;
+    text-transform: uppercase; opacity: 0.4;
+  }
+  .book-hook {
+    font-size: 14px; font-style: italic; opacity: 0.6;
+    line-height: 1.55; margin: 6px 0 10px; padding: 0 2px;
+  }
+
+  /* ── LIGHTBOX ── */
+  .lightbox {
+    display: none; position: fixed; inset: 0; z-index: 1000;
+    background: rgba(27,34,64,0.88);
+    align-items: flex-start; justify-content: center;
+    padding: 24px; overflow-y: auto;
+  }
+  .lightbox.open { display: flex; }
+  .lb-inner {
+    background: var(--cream); max-width: 520px; width: 100%;
+    margin: auto; padding: 40px 24px 32px; position: relative;
+  }
+  .lb-close {
+    position: absolute; top: 14px; right: 18px;
+    background: none; border: none; font-size: 24px;
+    color: var(--navy); opacity: 0.4; cursor: pointer; padding: 4px 8px;
+    transition: opacity 0.2s;
+  }
+  .lb-close:hover { opacity: 1; }
+  .lb-title { font-size: 22px; font-style: italic; font-weight: 400; margin-bottom: 4px; }
+  .lb-sub {
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    opacity: 0.4; margin-bottom: 28px;
+  }
+  .lb-pages { display: flex; flex-direction: column; gap: 14px; margin-bottom: 28px; }
+  .lb-page {
+    background: white; border: 1px solid rgba(27,34,64,0.12);
+    padding: 20px 20px 14px; display: flex; flex-direction: column; min-height: 220px;
+    position: relative;
+  }
+  /* Real image mode */
+  .lb-page.has-image { padding: 0; min-height: 0; }
+  .lb-page.has-image img { width: 100%; display: block; }
+  /* Simulated page */
+  .lb-page .page-label {
+    font-size: 9px; letter-spacing: 0.28em; text-transform: uppercase;
+    opacity: 0.35; margin-bottom: 14px;
+  }
+  .lb-page .page-prompt { font-size: 14px; font-style: italic; opacity: 0.7; line-height: 1.6; margin-bottom: 14px; }
+  .lb-page .page-lines { flex: 1; display: flex; flex-direction: column; justify-content: flex-end; }
+  .lb-page .page-line { height: 1px; background: rgba(120,130,165,0.3); margin-bottom: 20px; }
+  .lb-page .page-hedera { font-style: italic; font-size: 14px; opacity: 0.18; text-align: center; padding-top: 4px; }
+  .lb-footer {
+    border-top: 1px solid rgba(27,34,64,0.15); padding-top: 18px;
+    display: flex; flex-direction: column; gap: 10px;
+  }
+  .lb-footer .lb-note { font-size: 13px; font-style: italic; opacity: 0.5; }
+  .lb-footer a {
+    color: var(--navy); font-size: 12px; letter-spacing: 0.14em;
+    text-transform: uppercase; text-decoration: none;
+    border-bottom: 1px solid currentColor; padding-bottom: 2px;
+    align-self: flex-start;
+  }
+
+  /* Responsive */
+  @media (max-width: 720px) {
+    .books-grid { grid-template-columns: repeat(2, 1fr); gap: 40px 20px; }
+    .books-grid-2 { grid-template-columns: repeat(2, 1fr); gap: 40px 20px; }
+    .books-grid-4 { grid-template-columns: repeat(2, 1fr); gap: 40px 20px; }
+  }
+  @media (max-width: 600px) {
+    section { padding: 80px 20px; }
+    p.lead { font-size: 19px; }
+    .pub-tab { display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 12px 18px; font-size: 12px; }
+    .books-grid { grid-template-columns: repeat(2, 1fr); gap: 32px 16px; }
+    .books-grid-2 { grid-template-columns: repeat(2, 1fr); gap: 32px 16px; }
+    .books-grid-4 { grid-template-columns: repeat(2, 1fr); gap: 32px 16px; }
+    .lb-inner { padding: 40px 18px 28px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="container">
+    <div class="wordmark">Inkline Studio</div>
+    <h1>Calm books, paper journals, and quiet planners.</h1>
+    <p class="lead">For people who'd rather think than be optimised.<br>Designed in the United Kingdom.</p>
+    <div>
+      <a href="#books" class="btn btn-primary">See the books</a>
+    </div>
+    <div class="hedera">&#10087;</div>
+  </div>
+</section>
+
+<!-- BOOKS -->
+<section class="books" id="books">
+  <div class="container">
+    <div class="section-label">Our Books</div>
+    <h2>Four imprints. One quiet shelf.</h2>
+    <p class="narrow" style="text-align: center; opacity: 0.75; margin-bottom: 0;">
+      Journals, planners, puzzles, and nature books &mdash; designed in the United Kingdom.
+    </p>
+
+    <p class="narrow" style="text-align:center;font-size:14px;font-style:italic;opacity:0.45;margin-top:16px;margin-bottom:0;">Click any cover to look inside.</p>
+
+    <!-- Publisher Tabs -->
+    <div class="pub-tabs" role="tablist">
+      <button class="pub-tab active" data-tab="inkline" role="tab"><img src="images/logo-inkline.png" alt="" style="height:32px;width:auto;opacity:0.7;"><span>Inkline Studio</span></button>
+      <button class="pub-tab" data-tab="pawline" role="tab"><img src="images/logo-pawline.png" alt="" style="height:32px;width:auto;opacity:0.7;"><span>Pawline Press</span></button>
+      <button class="pub-tab" data-tab="kettle" role="tab"><img src="images/logo-kettle.png" alt="" style="height:32px;width:auto;opacity:0.7;"><span>Kettle Press</span></button>
+      <button class="pub-tab" data-tab="heather" role="tab"><img src="images/logo-heather.png" alt="" style="height:32px;width:auto;opacity:0.7;"><span>Heather Press</span></button>
+    </div>
+
+    <!-- Inkline Studio -->
+    <div class="tab-panel active" id="tab-inkline">
+      <p class="tab-desc">Calm journals and quiet planners. Cream paper, navy type, no app required.</p>
+      <div class="books-grid">
+
+        <div class="book">
+          <div class="book-cover clickable" onclick="openLb('b1')">
+            <img src="images/book1.png" alt="The Calm Semester Planner">
+            <div class="peek-hint">
+              <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#F5EFE0" stroke-width="1.2"/><line x1="6" y1="3" x2="6" y2="9" stroke="#F5EFE0" stroke-width="1.2"/><line x1="3" y1="6" x2="9" y2="6" stroke="#F5EFE0" stroke-width="1.2"/></svg>
+              <span>Peek inside</span>
+            </div>
+          </div>
+          <h3>The Calm Semester Planner</h3>
+          <p class="book-hook">Weekly and monthly spreads for the full term. No hustle culture, no productivity guilt.</p>
+          <div class="meta">Paperback &middot; &pound;14.99</div>
+          <a href="https://www.amazon.co.uk/dp/B0GYS4TT25" target="_blank" rel="noopener">Find on Amazon &rarr;</a>
+        </div>
+
+        <div class="book">
+          <div class="book-cover clickable" onclick="openLb('b2')">
+            <img src="images/book2.png" alt="The Calm Exam Season Journal">
+            <div class="peek-hint">
+              <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#F5EFE0" stroke-width="1.2"/><line x1="6" y1="3" x2="6" y2="9" stroke="#F5EFE0" stroke-width="1.2"/><line x1="3" y1="6" x2="9" y2="6" stroke="#F5EFE0" stroke-width="1.2"/></svg>
+              <span>Peek inside</span>
+            </div>
+          </div>
+          <h3>The Calm Exam Season Journal</h3>
+          <p class="book-hook">Six weeks of daily pages. For the student who wants to think clearly, not just tick boxes.</p>
+          <div class="meta">Paperback &middot; &pound;14.99</div>
+          <a href="https://www.amazon.co.uk/dp/B0GYYKN64L" target="_blank" rel="noopener">Find on Amazon &rarr;</a>
+        </div>
+
+        <div class="book">
+          <div class="book-cover clickable" onclick="openLb('b3')">
+            <img src="images/book3.png" alt="The Calm Reading Journal">
+            <div class="peek-hint">
+              <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#F5EFE0" stroke-width="1.2"/><line x1="6" y1="3" x2="6" y2="9" stroke="#F5EFE0" stroke-width="1.2"/><line x1="3" y1="6" x2="9" y2="6" stroke="#F5EFE0" stroke-width="1.2"/></svg>
+              <span>Peek inside</span>
+            </div>
+          </div>
+          <h3>The Calm Reading Journal</h3>
+          <p class="book-hook">A spread for each book you read. No streak counter. No five-star rating system.</p>
+          <div class="meta">Paperback &middot; &pound;14.99</div>
+          <a href="https://www.amazon.co.uk/dp/B0GZKDNTY3" target="_blank" rel="noopener">Find on Amazon &rarr;</a>
+        </div>
+
+        <div class="book">
+          <div class="book-cover clickable" onclick="openLb('b4')">
+            <img src="images/book4.png" alt="The Calm Work Journal">
+            <div class="peek-hint">
+              <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#F5EFE0" stroke-width="1.2"/><line x1="6" y1="3" x2="6" y2="9" stroke="#F5EFE0" stroke-width="1.2"/><line x1="3" y1="6" x2="9" y2="6" stroke="#F5EFE0" stroke-width="1.2"/></svg>
+              <span>Peek inside</span>
+            </div>
+          </div>
+          <h3>The Calm Work Journal</h3>
+          <p class="book-hook">Weekly spreads and project pages for your working life. No productivity rhetoric.</p>
+          <div class="meta">Paperback &middot; &pound;14.99</div>
+          <a href="https://www.amazon.co.uk/dp/B0GZKWSWPC" target="_blank" rel="noopener">Find on Amazon &rarr;</a>
+        </div>
+
+        <div class="book">
+          <div class="book-cover clickable" onclick="openLb('b5')">
+            <img src="images/book5.png" alt="The Calm Restart Journal">
+            <div class="peek-hint">
+              <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#F5EFE0" stroke-width="1.2"/><line x1="6" y1="3" x2="6" y2="9" stroke="#F5EFE0" stroke-width="1.2"/><line x1="3" y1="6" x2="9" y2="6" stroke="#F5EFE0" stroke-width="1.2"/></svg>
+              <span>Peek inside</span>
+            </div>
+          </div>
+          <h3>The Calm Restart Journal</h3>
+          <p class="book-hook">For the planner you keep abandoning. Undated single-page entries — start whenever you're ready.</p>
+          <div class="meta">Paperback &middot; &pound;14.99</div>
+          <a href="https://www.amazon.co.uk/dp/B0GZZ6FBNB" target="_blank" rel="noopener">Find on Amazon &rarr;</a>
+        </div>
+
+        <div class="book">
+          <div class="book-cover clickable" onclick="openLb('b6')">
+            <img src="images/book6.png" alt="The Calm Sunday Planner">
+            <div class="peek-hint">
+              <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#F5EFE0" stroke-width="1.2"/><line x1="6" y1="3" x2="6" y2="9" stroke="#F5EFE0" stroke-width="1.2"/><line x1="3" y1="6" x2="9" y2="6" stroke="#F5EFE0" stroke-width="1.2"/></svg>
+              <span>Peek inside</span>
+            </div>
+          </div>
+          <h3>The Calm Sunday Planner</h3>
+          <p class="book-hook">The Sunday evening reset. One weekly spread to clear your head before the week begins.</p>
+          <div class="meta">Paperback &middot; &pound;14.99</div>
+          <a href="https://www.amazon.co.uk/dp/B0GZZ6Z1Y4" target="_blank" rel="noopener">Find on Amazon &rarr;</a>
+        </div>
+
+        <div class="book">
+          <div class="book-cover clickable" onclick="openLb('b7')">
+            <img src="images/book7.png" alt="The Calm Garden Journal">
+            <div class="peek-hint">
+              <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#F5EFE0" stroke-width="1.2"/><line x1="6" y1="3" x2="6" y2="9" stroke="#F5EFE0" stroke-width="1.2"/><line x1="3" y1="6" x2="9" y2="6" stroke="#F5EFE0" stroke-width="1.2"/></svg>
+              <span>Peek inside</span>
+            </div>
+          </div>
+          <h3>The Calm Garden Journal</h3>
+          <p class="book-hook">Monthly spreads and noticing pages. For the gardener who wants to remember what they grew.</p>
+          <div class="meta">Paperback &middot; &pound;14.99</div>
+          <a href="https://www.amazon.co.uk/dp/B0H1PR62VZ" target="_blank" rel="noopener">Find on Amazon &rarr;</a>
+        </div>
+
+        <div class="book">
+          <div class="book-cover clickable" onclick="openLb('b8')">
+            <img src="images/book8.png" alt="The Calm Comeback Journal">
+            <div class="peek-hint">
+              <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#F5EFE0" stroke-width="1.2"/><line x1="6" y1="3" x2="6" y2="9" stroke="#F5EFE0" stroke-width="1.2"/><line x1="3" y1="6" x2="9" y2="6" stroke="#F5EFE0" stroke-width="1.2"/></svg>
+              <span>Peek inside</span>
+            </div>
+          </div>
+          <h3>The Calm Comeback Journal</h3>
+          <p class="book-hook">For recovery, rest, or re-entry. Space to arrive slowly without needing to explain yourself.</p>
+          <div class="meta">Paperback &middot; &pound;14.99</div>
+          <a href="https://www.amazon.co.uk/dp/B0H1PV3D5T" target="_blank" rel="noopener">Find on Amazon &rarr;</a>
+        </div>
+
+        <div class="book">
+          <div class="book-cover clickable" onclick="openLb('b9')">
+            <img src="images/book9.png" alt="The Calm Movement Journal">
+            <div class="peek-hint">
+              <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#F5EFE0" stroke-width="1.2"/><line x1="6" y1="3" x2="6" y2="9" stroke="#F5EFE0" stroke-width="1.2"/><line x1="3" y1="6" x2="9" y2="6" stroke="#F5EFE0" stroke-width="1.2"/></svg>
+              <span>Peek inside</span>
+            </div>
+          </div>
+          <h3>The Calm Movement Journal</h3>
+          <p class="book-hook">Log what you did and how it felt. Not performance tracking — just noticing.</p>
+          <div class="meta">Paperback &middot; &pound;14.99</div>
+          <a href="https://www.amazon.co.uk/dp/B0H2L53JBF" target="_blank" rel="noopener">Find on Amazon &rarr;</a>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Pawline Press -->
+    <div class="tab-panel" id="tab-pawline">
+      <p class="tab-desc">Journals for pet owners who pay attention. Cream paper, warm brown type.</p>
+      <div class="books-grid-4">
+        <div class="book">
+          <div class="book-cover clickable" onclick="openLb('pw1')"><img src="images/pawline-1.png" alt="The Dog Life Journal"><div class="peek-hint"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#F5EFE0" stroke-width="1.2"/><line x1="6" y1="3" x2="6" y2="9" stroke="#F5EFE0" stroke-width="1.2"/><line x1="3" y1="6" x2="9" y2="6" stroke="#F5EFE0" stroke-width="1.2"/></svg><span>Peek inside</span></div></div>
+          <h3>The Dog Life Journal</h3>
+          <div class="meta">Paperback &middot; &pound;12.99</div>
+          <a href="https://www.amazon.co.uk/dp/B0H2LP3FQC" target="_blank" rel="noopener">Find on Amazon &rarr;</a>
+        </div>
+        <div class="book">
+          <div class="book-cover clickable" onclick="openLb('pw2')"><img src="images/pawline-2.png" alt="The Cat Life Journal"><div class="peek-hint"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#F5EFE0" stroke-width="1.2"/><line x1="6" y1="3" x2="6" y2="9" stroke="#F5EFE0" stroke-width="1.2"/><line x1="3" y1="6" x2="9" y2="6" stroke="#F5EFE0" stroke-width="1.2"/></svg><span>Peek inside</span></div></div>
+          <h3>The Cat Life Journal</h3>
+          <div class="meta">Paperback &middot; &pound;12.99</div>
+          <a href="https://www.amazon.co.uk/dp/B0H2MW9R8V" target="_blank" rel="noopener">Find on Amazon &rarr;</a>
+        </div>
+        <div class="book">
+          <div class="book-cover clickable" onclick="openLb('pw3')"><img src="images/pawline-3.png" alt="The New Puppy Journal"><div class="peek-hint"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#F5EFE0" stroke-width="1.2"/><line x1="6" y1="3" x2="6" y2="9" stroke="#F5EFE0" stroke-width="1.2"/><line x1="3" y1="6" x2="9" y2="6" stroke="#F5EFE0" stroke-width="1.2"/></svg><span>Peek inside</span></div></div>
+          <h3>The New Puppy Journal</h3>
+          <div class="meta">Paperback &middot; &pound;12.99</div>
+          <a href="https://www.amazon.co.uk/dp/B0H2MWSH77" target="_blank" rel="noopener">Find on Amazon &rarr;</a>
+        </div>
+        <div class="book">
+          <div class="book-cover clickable" onclick="openLb('pw4')"><img src="images/pawline-4.png" alt="The New Kitten Journal"><div class="peek-hint"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#F5EFE0" stroke-width="1.2"/><line x1="6" y1="3" x2="6" y2="9" stroke="#F5EFE0" stroke-width="1.2"/><line x1="3" y1="6" x2="9" y2="6" stroke="#F5EFE0" stroke-width="1.2"/></svg><span>Peek inside</span></div></div>
+          <h3>The New Kitten Journal</h3>
+          <div class="meta">Paperback &middot; &pound;12.99</div>
+          <a href="https://www.amazon.co.uk/dp/B0H2QNVJFZ" target="_blank" rel="noopener">Find on Amazon &rarr;</a>
+        </div>
+        <div class="book">
+          <div class="book-cover clickable" onclick="openLb('pw5')"><img src="images/pawline-5.png" alt="The Dog Walking Journal"><div class="peek-hint"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#F5EFE0" stroke-width="1.2"/><line x1="6" y1="3" x2="6" y2="9" stroke="#F5EFE0" stroke-width="1.2"/><line x1="3" y1="6" x2="9" y2="6" stroke="#F5EFE0" stroke-width="1.2"/></svg><span>Peek inside</span></div></div>
+          <h3>The Dog Walking Journal</h3>
+          <div class="meta">Paperback &middot; &pound;12.99</div>
+          <a href="https://www.amazon.co.uk/dp/B0H2QCVDDH" target="_blank" rel="noopener">Find on Amazon &rarr;</a>
+        </div>
+        <div class="book">
+          <div class="book-cover clickable" onclick="openLb('pw6')"><img src="images/pawline-6.png" alt="The New Rescue Journal"><div class="peek-hint"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#F5EFE0" stroke-width="1.2"/><line x1="6" y1="3" x2="6" y2="9" stroke="#F5EFE0" stroke-width="1.2"/><line x1="3" y1="6" x2="9" y2="6" stroke="#F5EFE0" stroke-width="1.2"/></svg><span>Peek inside</span></div></div>
+          <h3>The New Rescue Journal</h3>
+          <div class="meta">Paperback &middot; &pound;12.99</div>
+          <a href="https://www.amazon.co.uk/dp/B0H2RXSK8W" target="_blank" rel="noopener">Find on Amazon &rarr;</a>
+        </div>
+        <div class="book">
+          <div class="book-cover clickable" onclick="openLb('pw7')"><img src="images/pawline-7.png" alt="The Training Journal"><div class="peek-hint"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#F5EFE0" stroke-width="1.2"/><line x1="6" y1="3" x2="6" y2="9" stroke="#F5EFE0" stroke-width="1.2"/><line x1="3" y1="6" x2="9" y2="6" stroke="#F5EFE0" stroke-width="1.2"/></svg><span>Peek inside</span></div></div>
+          <h3>The Training Journal</h3>
+          <div class="meta">Paperback &middot; &pound;12.99</div>
+          <a href="https://www.amazon.co.uk/dp/B0H2RS7HRD" target="_blank" rel="noopener">Find on Amazon &rarr;</a>
+        </div>
+        <div class="book">
+          <div class="book-cover clickable" onclick="openLb('pw8')"><img src="images/pawline-8.png" alt="The Senior Pet Journal"><div class="peek-hint"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#F5EFE0" stroke-width="1.2"/><line x1="6" y1="3" x2="6" y2="9" stroke="#F5EFE0" stroke-width="1.2"/><line x1="3" y1="6" x2="9" y2="6" stroke="#F5EFE0" stroke-width="1.2"/></svg><span>Peek inside</span></div></div>
+          <h3>The Senior Pet Journal</h3>
+          <div class="meta">Paperback &middot; &pound;12.99</div>
+          <a href="https://www.amazon.co.uk/dp/B0H2RQ9F6G" target="_blank" rel="noopener">Find on Amazon &rarr;</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Kettle Press -->
+    <div class="tab-panel" id="tab-kettle">
+      <p class="tab-desc">Large print puzzle books. No timer, no score, no app. Word search, sudoku, cryptograms, riddles.</p>
+      <div class="books-grid-2">
+        <div class="book">
+          <div class="book-cover clickable" onclick="openLb('k1')">
+            <img src="images/kettle-1.png" alt="The Calm Puzzle Collection Vol 1">
+            <div class="peek-hint"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#F5EFE0" stroke-width="1.2"/><line x1="6" y1="3" x2="6" y2="9" stroke="#F5EFE0" stroke-width="1.2"/><line x1="3" y1="6" x2="9" y2="6" stroke="#F5EFE0" stroke-width="1.2"/></svg><span>Peek inside</span></div>
+          </div>
+          <h3>The Calm Puzzle Collection</h3>
+          <p class="book-hook">18 word searches, 20 sudoku, 10 cryptograms, riddles and tongue twisters. Large print throughout.</p>
+          <div class="meta">Volume One &middot; Paperback &middot; &pound;12.99</div>
+          <a href="https://www.amazon.co.uk/dp/B0H2XJLCK7" target="_blank" rel="noopener">Find on Amazon &rarr;</a>
+        </div>
+        <div class="book">
+          <div class="book-cover clickable" onclick="openLb('k2')">
+            <img src="images/kettle-2.png" alt="The Calm Puzzle Collection Vol 2">
+            <div class="peek-hint"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#F5EFE0" stroke-width="1.2"/><line x1="6" y1="3" x2="6" y2="9" stroke="#F5EFE0" stroke-width="1.2"/><line x1="3" y1="6" x2="9" y2="6" stroke="#F5EFE0" stroke-width="1.2"/></svg><span>Peek inside</span></div>
+          </div>
+          <h3>The Calm Puzzle Collection</h3>
+          <p class="book-hook">100 fresh large print puzzles. No repeats from Volume One. The same quiet format.</p>
+          <div class="meta">Volume Two &middot; Paperback &middot; &pound;12.99</div>
+          <a href="https://www.amazon.co.uk/dp/B0H2XPB62R" target="_blank" rel="noopener">Find on Amazon &rarr;</a>
+        </div>
+        <div class="book">
+          <div class="book-cover clickable" onclick="openLb('k3')">
+            <img src="images/kettle-3.png" alt="The Calm Puzzle Collection Vol 3">
+            <div class="peek-hint"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#F5EFE0" stroke-width="1.2"/><line x1="6" y1="3" x2="6" y2="9" stroke="#F5EFE0" stroke-width="1.2"/><line x1="3" y1="6" x2="9" y2="6" stroke="#F5EFE0" stroke-width="1.2"/></svg><span>Peek inside</span></div>
+          </div>
+          <h3>The Calm Puzzle Collection</h3>
+          <p class="book-hook">Something good to do with an afternoon. All new puzzles, 8.5 &times; 11 large print.</p>
+          <div class="meta">Volume Three &middot; Paperback &middot; &pound;12.99</div>
+          <a href="https://www.amazon.co.uk/dp/B0H3977BGX" target="_blank" rel="noopener">Find on Amazon &rarr;</a>
+        </div>
+        <div class="book">
+          <div class="book-cover clickable" onclick="openLb('k4')">
+            <img src="images/kettle-4.png" alt="The Calm Puzzle Collection Vol 4">
+            <div class="peek-hint"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#F5EFE0" stroke-width="1.2"/><line x1="6" y1="3" x2="6" y2="9" stroke="#F5EFE0" stroke-width="1.2"/><line x1="3" y1="6" x2="9" y2="6" stroke="#F5EFE0" stroke-width="1.2"/></svg><span>Peek inside</span></div>
+          </div>
+          <h3>The Calm Puzzle Collection</h3>
+          <p class="book-hook">The puzzle you come back to. You do not have to finish it. Completes the series.</p>
+          <div class="meta">Volume Four &middot; Paperback &middot; &pound;12.99</div>
+          <a href="https://www.amazon.co.uk/dp/B0H39BSCM6" target="_blank" rel="noopener">Find on Amazon &rarr;</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Heather Press -->
+    <div class="tab-panel" id="tab-heather">
+      <p class="tab-desc">Drawing and colouring books for the British natural world. A ghost guide on every spread &mdash; no blank page to face.</p>
+      <div class="books-grid-2">
+        <div class="book">
+          <div class="book-cover clickable" onclick="openLb('h1')">
+            <img src="images/heather-1.png" alt="Botanical Flowers Vol 1">
+            <div class="peek-hint"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#F5EFE0" stroke-width="1.2"/><line x1="6" y1="3" x2="6" y2="9" stroke="#F5EFE0" stroke-width="1.2"/><line x1="3" y1="6" x2="9" y2="6" stroke="#F5EFE0" stroke-width="1.2"/></svg><span>Peek inside</span></div>
+          </div>
+          <h3>Botanical Flowers</h3>
+          <p class="book-hook">Fifteen British wildflowers. A drawing guide and colouring page for each one. No experience required.</p>
+          <div class="meta">A Drawing &amp; Colouring Book &middot; &pound;12.99</div>
+          <span class="coming-soon">Coming soon on Amazon</span>
+        </div>
+        <div class="book">
+          <div class="book-cover clickable" onclick="openLb('h2')">
+            <img src="images/heather-2.png" alt="Botanical Trees Vol 2">
+            <div class="peek-hint"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#F5EFE0" stroke-width="1.2"/><line x1="6" y1="3" x2="6" y2="9" stroke="#F5EFE0" stroke-width="1.2"/><line x1="3" y1="6" x2="9" y2="6" stroke="#F5EFE0" stroke-width="1.2"/></svg><span>Peek inside</span></div>
+          </div>
+          <h3>Botanical Trees</h3>
+          <p class="book-hook">Fifteen British trees &mdash; Oak, Beech, Silver Birch, Wild Cherry. Draw it, then colour it.</p>
+          <div class="meta">A Drawing &amp; Colouring Book &middot; &pound;12.99</div>
+          <span class="coming-soon">Coming soon on Amazon</span>
+        </div>
+        <div class="book">
+          <div class="book-cover clickable" onclick="openLb('h3')">
+            <img src="images/heather-3.png" alt="Botanical Scenery Vol 3">
+            <div class="peek-hint"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#F5EFE0" stroke-width="1.2"/><line x1="6" y1="3" x2="6" y2="9" stroke="#F5EFE0" stroke-width="1.2"/><line x1="3" y1="6" x2="9" y2="6" stroke="#F5EFE0" stroke-width="1.2"/></svg><span>Peek inside</span></div>
+          </div>
+          <h3>Botanical Scenery</h3>
+          <p class="book-hook">Fifteen British landscapes &mdash; coastal cliffs, chalk downs, ancient woodland, moorland.</p>
+          <div class="meta">A Drawing &amp; Colouring Book &middot; &pound;12.99</div>
+          <span class="coming-soon">Coming soon on Amazon</span>
+        </div>
+        <div class="book">
+          <div class="book-cover clickable" onclick="openLb('h4')">
+            <img src="images/heather-4.png" alt="Botanical Animals Vol 4">
+            <div class="peek-hint"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#F5EFE0" stroke-width="1.2"/><line x1="6" y1="3" x2="6" y2="9" stroke="#F5EFE0" stroke-width="1.2"/><line x1="3" y1="6" x2="9" y2="6" stroke="#F5EFE0" stroke-width="1.2"/></svg><span>Peek inside</span></div>
+          </div>
+          <h3>Botanical Animals</h3>
+          <p class="book-hook">Fifteen British animals &mdash; Red Fox, Barn Owl, Otter, Kingfisher. Each one in its own habitat.</p>
+          <div class="meta">A Drawing &amp; Colouring Book &middot; &pound;12.99</div>
+          <span class="coming-soon">Coming soon on Amazon</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="narrow">
+    <div class="wordmark">About Inkline</div>
+    <h2>The work resists optimisation.</h2>
+    <p>Inkline Studio designs calm paperback journals and minimal Notion templates for people quietly tired of being measured by their tools.</p>
+    <p>The thesis is small: that the readers, the students, the working professionals, the people doing thoughtful work tend to be the ones who reach for paper. So we make paper worth reaching for &mdash; cream pages, navy serif typography, and pages that don't ask you to optimise yourself in order to use them.</p>
+    <p>No app pairings. No streaks. No motivational quotes. No &ldquo;you&rsquo;re behind on your goal&rdquo; notifications. The journal sits on your shelf and waits.</p>
+    <p>Designed in the United Kingdom. Printed by Amazon KDP on cream paper.</p>
+    <div class="hedera">&#10087;</div>
+  </div>
+</section>
+
+<!-- FOR TEAMS -->
+<section class="for-teams" id="for-teams">
+  <div class="narrow">
+    <div class="section-label" style="text-align: center; font-size: 13px; letter-spacing: 0.25em; text-transform: uppercase; opacity: 0.6; margin-bottom: 12px;">For Teams</div>
+    <h2>Bulk orders for working teams.</h2>
+    <p>For teams of 25 or more &mdash; onboarding kits, year-end gifts, wellness perks, conference giveaways &mdash; we offer direct bulk pricing on the Calm Work Journal and the rest of the series.</p>
+    <p>Each book is shipped from the UK. Custom inserts available on orders of 100+. The pitch we make to your colleagues is the same pitch we make to everyone: a journal that doesn&rsquo;t moralise at the people using it.</p>
+    <div class="center">
+      <a class="email" href="mailto:hello@inklinestudio.co.uk?subject=Bulk%20order%20enquiry">hello@inklinestudio.co.uk</a>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter" id="newsletter">
+  <div class="narrow">
+    <div class="wordmark" style="color: var(--cream);">Newsletter</div>
+    <h2>The Calm Mini Planner.</h2>
+    <p style="font-size: 19px;">A free 4-page printable planner. Three priorities, one daily focus, one quiet pause page. No app. No subscription. Yours forever.</p>
+    <div class="form-area">
+      <p>
+        <a class="btn btn-primary" href="https://inkline-studio-wvsst1.subscriberpage.io" target="_blank" rel="noopener">Get the free planner</a>
+      </p>
+    </div>
+    <div class="hedera">&#10087;</div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="wordmark">Inkline Studio</div>
+    <div class="footer-meta">
+      <a href="mailto:hello@inklinestudio.co.uk">hello@inklinestudio.co.uk</a>
+      &middot;
+      <a href="https://uk.pinterest.com/inklinestudiouk/" target="_blank" rel="noopener">Pinterest</a>
+    </div>
+    <div class="footer-meta" style="margin-top: 12px;">
+      &copy; 2026 Inkline Studio &middot; Designed in the United Kingdom
+    </div>
+  </div>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLbOutside(event)">
+  <div class="lb-inner" id="lb-inner">
+    <button class="lb-close" onclick="closeLb()">&times;</button>
+    <div class="lb-title" id="lb-title"></div>
+    <div class="lb-sub" id="lb-sub"></div>
+    <div class="lb-pages" id="lb-pages"></div>
+    <div class="lb-footer">
+      <span class="lb-note">Cream paper &middot; Navy serif &middot; Undated</span>
+      <a id="lb-amazon" href="#" target="_blank" rel="noopener">Find on Amazon &rarr;</a>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Tab switching
+  document.querySelectorAll('.pub-tab').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.pub-tab').forEach(function(b) { b.classList.remove('active'); });
+      document.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.remove('active'); });
+      btn.classList.add('active');
+      document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+    });
+  });
+
+  // Lightbox data
+  // To add real interior images: place JPGs in images/interior/
+  // and update the 'images' array for each book (path relative to site root)
+  var BOOKS = {
+    b1: { title: 'The Calm Semester Planner', sub: 'Book One', asin: 'B0GYS4TT25',
+      images: [], // e.g. ['images/interior/book1-p1.jpg','images/interior/book1-p2.jpg','images/interior/book1-p3.jpg']
+      pages: [
+        { label: 'Weekly spread', prompt: 'This week\u2019s focus.' },
+        { label: 'Exam tracker', prompt: 'What needs doing. What can wait.' },
+        { label: 'Pause page', prompt: 'One thing that went well.' }
+      ]
+    },
+    b2: { title: 'The Calm Exam Season Journal', sub: 'Book Two', asin: 'B0GYYKN64L',
+      images: [],
+      pages: [
+        { label: 'Daily entry', prompt: 'What I\u2019m working on today.' },
+        { label: 'Subject log', prompt: 'Hours. Energy. What clicked.' },
+        { label: 'Rest page', prompt: 'This is enough for today.' }
+      ]
+    },
+    b3: { title: 'The Calm Reading Journal', sub: 'Book Three', asin: 'B0GZKDNTY3',
+      images: [],
+      pages: [
+        { label: 'Reading spread', prompt: 'The book. Where I am. What stayed with me.' },
+        { label: 'Pause page', prompt: 'Books I started and set down \u2014 without shame.' },
+        { label: 'Anti-checklist', prompt: 'Not a goal. Just a record.' }
+      ]
+    },
+    b4: { title: 'The Calm Work Journal', sub: 'Book Four', asin: 'B0GZKWSWPC',
+      images: [],
+      pages: [
+        { label: 'Weekly spread', prompt: 'The work. Not the optics.' },
+        { label: 'Project page', prompt: 'What this is for. What it isn\u2019t.' },
+        { label: 'Quarterly pause', prompt: 'What I\u2019m protecting.' }
+      ]
+    },
+    b5: { title: 'The Calm Restart Journal', sub: 'Book Five', asin: 'B0GZZ6FBNB',
+      images: [],
+      pages: [
+        { label: 'Daily entry', prompt: 'Begin again. No day number.' },
+        { label: 'Hello again', prompt: 'Start here. The page doesn\u2019t know you left.' },
+        { label: 'Anti-shame pause', prompt: 'The pattern, not the streak.' }
+      ]
+    },
+    b6: { title: 'The Calm Sunday Planner', sub: 'Book Six', asin: 'B0GZZ6Z1Y4',
+      images: [],
+      pages: [
+        { label: 'Looking back', prompt: 'The week behind.' },
+        { label: 'Looking ahead', prompt: 'The week ahead.' },
+        { label: 'Seasonal opener', prompt: 'A quiet hour before the week begins.' }
+      ]
+    },
+    b7: { title: 'The Calm Garden Journal', sub: 'Book Seven', asin: 'B0H1PR62VZ',
+      images: [],
+      pages: [
+        { label: 'Monthly opener', prompt: 'What the garden is doing.' },
+        { label: 'Noticing spread', prompt: 'What I noticed this month.' },
+        { label: 'Seasonal pause', prompt: 'What the garden taught me.' }
+      ]
+    },
+    b8: { title: 'The Calm Comeback Journal', sub: 'Book Eight', asin: 'B0H1PV3D5T',
+      images: [],
+      pages: [
+        { label: 'Arriving', prompt: 'Where you land.' },
+        { label: 'Quiet weeks', prompt: 'The slow ones. The in-between ones.' },
+        { label: 'Slow re-entry', prompt: 'What you\u2019re protecting.' }
+      ]
+    },
+    b9: { title: 'The Calm Movement Journal', sub: 'Book Nine', asin: 'B0H2L53JBF',
+      images: [],
+      pages: [
+        { label: 'Movement log', prompt: 'What I did. How it felt.' },
+        { label: 'Body check', prompt: 'Not performance. Just noticing.' },
+        { label: 'Rest page', prompt: 'Rest is part of it.' }
+      ]
+    },
+    // Pawline Press
+    pw1: { title: 'The Dog Life Journal', sub: 'Pawline Press', asin: 'B0H2LP3FQC',
+      images: ['images/interior/pawline/p1-01-who.jpg','images/interior/pawline/p1-02-week.jpg','images/interior/pawline/p1-03-funny.jpg'], pages: []
+    },
+    pw2: { title: 'The Cat Life Journal', sub: 'Pawline Press', asin: 'B0H2MW9R8V',
+      images: ['images/interior/pawline/p2-01-who.jpg','images/interior/pawline/p2-02-week.jpg','images/interior/pawline/p2-03-funny.jpg'], pages: []
+    },
+    pw3: { title: 'The New Puppy Journal', sub: 'Pawline Press', asin: 'B0H2MWSH77',
+      images: ['images/interior/pawline/p3-01-who.jpg','images/interior/pawline/p3-02-week.jpg','images/interior/pawline/p3-03-funny.jpg'], pages: []
+    },
+    pw4: { title: 'The New Kitten Journal', sub: 'Pawline Press', asin: 'B0H2QNVJFZ',
+      images: ['images/interior/pawline/p4-01-who.jpg','images/interior/pawline/p4-02-week.jpg','images/interior/pawline/p4-03-funny.jpg'], pages: []
+    },
+    pw5: { title: 'The Dog Walking Journal', sub: 'Pawline Press', asin: 'B0H2QCVDDH',
+      images: ['images/interior/pawline/p5-01-who.jpg','images/interior/pawline/p5-02-week.jpg','images/interior/pawline/p5-03-funny.jpg'], pages: []
+    },
+    pw6: { title: 'The New Rescue Journal', sub: 'Pawline Press', asin: 'B0H2RXSK8W',
+      images: ['images/interior/pawline/p6-01-who.jpg','images/interior/pawline/p6-02-week.jpg','images/interior/pawline/p6-03-funny.jpg'], pages: []
+    },
+    pw7: { title: 'The Training Journal', sub: 'Pawline Press', asin: 'B0H2RS7HRD',
+      images: ['images/interior/pawline/p7-01-who.jpg','images/interior/pawline/p7-02-week.jpg','images/interior/pawline/p7-03-funny.jpg'], pages: []
+    },
+    pw8: { title: 'The Senior Pet Journal', sub: 'Pawline Press', asin: 'B0H2RQ9F6G',
+      images: ['images/interior/pawline/p8-01-who.jpg','images/interior/pawline/p8-02-week.jpg','images/interior/pawline/p8-03-funny.jpg'], pages: []
+    },
+    // Kettle Press
+    k1: { title: 'The Calm Puzzle Collection', sub: 'Volume One · Kettle Press', asin: 'B0H2XJLCK7',
+      images: ['images/interior/kettle/v1-01-hero.jpg','images/interior/kettle/v1-02-inside.jpg','images/interior/kettle/v1-03-features.jpg'],
+      pages: []
+    },
+    k2: { title: 'The Calm Puzzle Collection', sub: 'Volume Two · Kettle Press', asin: 'B0H2XPB62R',
+      images: ['images/interior/kettle/v2-01-hero.jpg','images/interior/kettle/v2-02-inside.jpg','images/interior/kettle/v2-03-features.jpg'],
+      pages: []
+    },
+    k3: { title: 'The Calm Puzzle Collection', sub: 'Volume Three · Kettle Press', asin: 'B0H3977BGX',
+      images: ['images/interior/kettle/v3-01-hero.jpg','images/interior/kettle/v3-02-inside.jpg','images/interior/kettle/v3-03-features.jpg'],
+      pages: []
+    },
+    k4: { title: 'The Calm Puzzle Collection', sub: 'Volume Four · Kettle Press', asin: 'B0H39BSCM6',
+      images: ['images/interior/kettle/v4-01-hero.jpg','images/interior/kettle/v4-02-inside.jpg','images/interior/kettle/v4-03-features.jpg'],
+      pages: []
+    },
+    // Heather Press
+    h1: { title: 'Botanical Flowers', sub: 'Volume One · Heather Press', asin: '',
+      images: ['images/interior/heather/v1-01-hero.jpg','images/interior/heather/v1-02-inside.jpg','images/interior/heather/v1-03-features.jpg'],
+      pages: []
+    },
+    h2: { title: 'Botanical Trees', sub: 'Volume Two · Heather Press', asin: '',
+      images: ['images/interior/heather/v2-01-hero.jpg','images/interior/heather/v2-02-inside.jpg','images/interior/heather/v2-03-features.jpg'],
+      pages: []
+    },
+    h3: { title: 'Botanical Scenery', sub: 'Volume Three · Heather Press', asin: '',
+      images: ['images/interior/heather/v3-01-hero.jpg','images/interior/heather/v3-02-inside.jpg','images/interior/heather/v3-03-features.jpg'],
+      pages: []
+    },
+    h4: { title: 'Botanical Animals', sub: 'Volume Four · Heather Press', asin: '',
+      images: ['images/interior/heather/v4-01-hero.jpg','images/interior/heather/v4-02-inside.jpg','images/interior/heather/v4-03-features.jpg'],
+      pages: []
+    }
+  };
+
+  function openLb(id) {
+    var b = BOOKS[id];
+    document.getElementById('lb-title').textContent = b.title;
+    document.getElementById('lb-sub').textContent = b.sub;
+    var amzEl = document.getElementById('lb-amazon');
+    if (b.asin) {
+      amzEl.href = 'https://www.amazon.co.uk/dp/' + b.asin;
+      amzEl.style.display = '';
+    } else {
+      amzEl.style.display = 'none';
+    }
+
+    var container = document.getElementById('lb-pages');
+    container.innerHTML = '';
+
+    var useImages = b.images && b.images.length > 0;
+    var items = useImages ? b.images : b.pages;
+
+    items.forEach(function(item) {
+      var pg = document.createElement('div');
+      if (useImages) {
+        pg.className = 'lb-page has-image';
+        var img = document.createElement('img');
+        img.src = item;
+        img.alt = b.title + ' interior page';
+        pg.appendChild(img);
+      } else {
+        pg.className = 'lb-page';
+        var lines = '';
+        for (var i = 0; i < 6; i++) { lines += '<div class="page-line"></div>'; }
+        pg.innerHTML =
+          '<div class="page-label">' + item.label + '</div>' +
+          '<div class="page-prompt">' + item.prompt + '</div>' +
+          '<div class="page-lines">' + lines + '</div>' +
+          '<div class="page-hedera">&#10087;</div>';
+      }
+      container.appendChild(pg);
+    });
+
+    document.getElementById('lightbox').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLb() {
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function closeLbOutside(e) {
+    if (e.target === document.getElementById('lightbox')) closeLb();
+  }
+
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeLb(); });
+</script>
+
+</body>
+</html>
