@@ -21,7 +21,7 @@
     --rule-dark: rgba(27, 34, 64, 0.3);
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; overflow-x: hidden; }
   body {
     font-family: 'Lora', Georgia, serif;
     color: var(--navy);
@@ -30,6 +30,7 @@
     font-size: 18px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
   }
   section { padding: 100px 24px; position: relative; }
   .container { max-width: 960px; margin: 0 auto; }
@@ -189,7 +190,10 @@
   .pub-tabs {
     display: flex; justify-content: center; gap: 0;
     border-bottom: 1px solid var(--rule-dark); margin: 48px 0 0;
+    overflow-x: auto; -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
   }
+  .pub-tabs::-webkit-scrollbar { display: none; }
   .pub-tab {
     display: flex; flex-direction: column; align-items: center; gap: 6px;
     font-family: 'Lora', Georgia, serif; font-size: 13px;
@@ -280,6 +284,7 @@
   @media (max-width: 600px) {
     section { padding: 80px 20px; }
     p.lead { font-size: 19px; }
+    .pub-tabs { justify-content: flex-start; }
     .pub-tab { display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 12px 18px; font-size: 12px; }
     .books-grid { grid-template-columns: repeat(2, 1fr); gap: 32px 16px; }
     .books-grid-2 { grid-template-columns: repeat(2, 1fr); gap: 32px 16px; }
@@ -320,6 +325,7 @@
       <button class="pub-tab" data-tab="pawline" role="tab"><img src="images/logo-pawline.png" alt="" style="height:32px;width:auto;opacity:0.7;"><span>Pawline Press</span></button>
       <button class="pub-tab" data-tab="kettle" role="tab"><img src="images/logo-kettle.png" alt="" style="height:32px;width:auto;opacity:0.7;"><span>Kettle Press</span></button>
       <button class="pub-tab" data-tab="heather" role="tab"><img src="images/logo-heather.png" alt="" style="height:32px;width:auto;opacity:0.7;"><span>Heather Press</span></button>
+      <button class="pub-tab" data-tab="tinderwick" role="tab"><span style="display:block;height:32px;line-height:32px;font-style:italic;font-size:22px;opacity:0.7;">TP</span><span>Tinderwick Press</span></button>
     </div>
 
     <!-- Inkline Studio -->
@@ -513,8 +519,8 @@
 
     <!-- Kettle Press -->
     <div class="tab-panel" id="tab-kettle">
-      <p class="tab-desc">Large print puzzle books. No timer, no score, no app. Word search, sudoku, cryptograms, riddles.</p>
-      <div class="books-grid-2">
+      <p class="tab-desc">Large print puzzle books. No timer, no score, no app. Word search, sudoku, cryptograms, riddles, and the all-Kakuro collection.</p>
+      <div class="books-grid-4">
         <div class="book">
           <div class="book-cover clickable" onclick="openLb('k1')">
             <img src="images/kettle-1.png" alt="The Calm Puzzle Collection Vol 1">
@@ -551,9 +557,91 @@
             <div class="peek-hint"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#F5EFE0" stroke-width="1.2"/><line x1="6" y1="3" x2="6" y2="9" stroke="#F5EFE0" stroke-width="1.2"/><line x1="3" y1="6" x2="9" y2="6" stroke="#F5EFE0" stroke-width="1.2"/></svg><span>Peek inside</span></div>
           </div>
           <h3>The Calm Puzzle Collection</h3>
-          <p class="book-hook">The puzzle you come back to. You do not have to finish it. Completes the series.</p>
+          <p class="book-hook">The puzzle you come back to. You do not have to finish it.</p>
           <div class="meta">Volume Four &middot; Paperback &middot; &pound;12.99</div>
           <a href="https://www.amazon.co.uk/dp/B0H39BSCM6" target="_blank" rel="noopener">Find on Amazon &rarr;</a>
+        </div>
+        <div class="book">
+          <div class="book-cover clickable" onclick="openLb('k5')">
+            <img src="images/kettle-5.png" alt="The Calm Puzzle Collection Vol 5">
+            <div class="peek-hint"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#F5EFE0" stroke-width="1.2"/><line x1="6" y1="3" x2="6" y2="9" stroke="#F5EFE0" stroke-width="1.2"/><line x1="3" y1="6" x2="9" y2="6" stroke="#F5EFE0" stroke-width="1.2"/></svg><span>Peek inside</span></div>
+          </div>
+          <h3>The Calm Puzzle Collection</h3>
+          <p class="book-hook">33 word searches, 28 sudoku, 16 cryptograms, riddles and tongue twisters. Large print.</p>
+          <div class="meta">Volume Five &middot; Paperback &middot; &pound;12.99</div>
+          <a href="https://www.amazon.co.uk/dp/B0H55BYXY9" target="_blank" rel="noopener">Find on Amazon &rarr;</a>
+        </div>
+        <div class="book">
+          <div class="book-cover clickable" onclick="openLb('k6')">
+            <img src="images/kettle-6.png" alt="The Calm Puzzle Collection Vol 6">
+            <div class="peek-hint"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#F5EFE0" stroke-width="1.2"/><line x1="6" y1="3" x2="6" y2="9" stroke="#F5EFE0" stroke-width="1.2"/><line x1="3" y1="6" x2="9" y2="6" stroke="#F5EFE0" stroke-width="1.2"/></svg><span>Peek inside</span></div>
+          </div>
+          <h3>The Calm Puzzle Collection</h3>
+          <p class="book-hook">British Seaside themed. Now includes Kakuro. All large print, all new puzzles.</p>
+          <div class="meta">Volume Six &middot; Paperback &middot; &pound;12.99</div>
+          <a href="https://www.amazon.co.uk/dp/B0H4W44YGY" target="_blank" rel="noopener">Find on Amazon &rarr;</a>
+        </div>
+        <div class="book">
+          <div class="book-cover clickable" onclick="openLb('k7')">
+            <img src="images/kettle-7.png" alt="The Calm Puzzle Collection Vol 7">
+            <div class="peek-hint"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#F5EFE0" stroke-width="1.2"/><line x1="6" y1="3" x2="6" y2="9" stroke="#F5EFE0" stroke-width="1.2"/><line x1="3" y1="6" x2="9" y2="6" stroke="#F5EFE0" stroke-width="1.2"/></svg><span>Peek inside</span></div>
+          </div>
+          <h3>The Calm Puzzle Collection</h3>
+          <p class="book-hook">British Countryside themed. Word search, sudoku, cryptograms, kakuro. Large print.</p>
+          <div class="meta">Volume Seven &middot; Paperback &middot; &pound;12.99</div>
+          <a href="https://www.amazon.co.uk/dp/B0H4VR55CW" target="_blank" rel="noopener">Find on Amazon &rarr;</a>
+        </div>
+        <div class="book">
+          <div class="book-cover clickable" onclick="openLb('k8')">
+            <img src="images/kettle-8.png" alt="The Calm Puzzle Collection Vol 8">
+            <div class="peek-hint"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#F5EFE0" stroke-width="1.2"/><line x1="6" y1="3" x2="6" y2="9" stroke="#F5EFE0" stroke-width="1.2"/><line x1="3" y1="6" x2="9" y2="6" stroke="#F5EFE0" stroke-width="1.2"/></svg><span>Peek inside</span></div>
+          </div>
+          <h3>The Calm Puzzle Collection</h3>
+          <p class="book-hook">British Towns themed. A quiet hour wherever you are. All large print puzzles.</p>
+          <div class="meta">Volume Eight &middot; Paperback &middot; &pound;12.99</div>
+          <a href="https://www.amazon.co.uk/dp/B0H4VYYWDZ" target="_blank" rel="noopener">Find on Amazon &rarr;</a>
+        </div>
+        <div class="book">
+          <div class="book-cover clickable" onclick="openLb('k9')">
+            <img src="images/kettle-9.png" alt="The Calm Puzzle Collection Vol 9">
+            <div class="peek-hint"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#F5EFE0" stroke-width="1.2"/><line x1="6" y1="3" x2="6" y2="9" stroke="#F5EFE0" stroke-width="1.2"/><line x1="3" y1="6" x2="9" y2="6" stroke="#F5EFE0" stroke-width="1.2"/></svg><span>Peek inside</span></div>
+          </div>
+          <h3>The Calm Puzzle Collection</h3>
+          <p class="book-hook">Home and Garden themed. Word search, sudoku, cryptograms, kakuro. All new puzzles.</p>
+          <div class="meta">Volume Nine &middot; Paperback &middot; &pound;12.99</div>
+          <a href="https://www.amazon.co.uk/dp/B0H4VXT7DH" target="_blank" rel="noopener">Find on Amazon &rarr;</a>
+        </div>
+        <div class="book">
+          <div class="book-cover clickable" onclick="openLb('k10')">
+            <img src="images/kettle-10.png" alt="The Calm Puzzle Collection Vol 10">
+            <div class="peek-hint"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#F5EFE0" stroke-width="1.2"/><line x1="6" y1="3" x2="6" y2="9" stroke="#F5EFE0" stroke-width="1.2"/><line x1="3" y1="6" x2="9" y2="6" stroke="#F5EFE0" stroke-width="1.2"/></svg><span>Peek inside</span></div>
+          </div>
+          <h3>The Calm Puzzle Collection</h3>
+          <p class="book-hook">British Seasons and Memory themed. Completes the series. Large print throughout.</p>
+          <div class="meta">Volume Ten &middot; Paperback &middot; &pound;12.99</div>
+          <a href="https://www.amazon.co.uk/dp/B0H4W58PM8" target="_blank" rel="noopener">Find on Amazon &rarr;</a>
+        </div>
+
+        <div class="book">
+          <div class="book-cover"><img src="images/kakuro-1.png" alt="The Calm Kakuro Collection Volume One"></div>
+          <h3>The Calm Kakuro Collection</h3>
+          <p class="book-hook">100 large print Kakuro puzzles: easy, medium and hard. The number puzzle, all on its own.</p>
+          <div class="meta">Volume One &middot; Paperback &middot; &pound;12.99</div>
+          <a href="https://www.amazon.co.uk/dp/B0H571VTZF" target="_blank" rel="noopener">Find on Amazon &rarr;</a>
+        </div>
+        <div class="book">
+          <div class="book-cover"><img src="images/kakuro-2.png" alt="The Calm Kakuro Collection Volume Two"></div>
+          <h3>The Calm Kakuro Collection</h3>
+          <p class="book-hook">100 fresh Kakuro puzzles. No repeats from Volume One. The same quiet format.</p>
+          <div class="meta">Volume Two &middot; Paperback &middot; &pound;12.99</div>
+          <a href="https://www.amazon.co.uk/dp/B0H577VSVD" target="_blank" rel="noopener">Find on Amazon &rarr;</a>
+        </div>
+        <div class="book">
+          <div class="book-cover"><img src="images/kakuro-3.png" alt="The Calm Kakuro Collection Volume Three"></div>
+          <h3>The Calm Kakuro Collection</h3>
+          <p class="book-hook">Another 100 large print Kakuro. Something good to do with a quiet hour.</p>
+          <div class="meta">Volume Three &middot; Paperback &middot; &pound;12.99</div>
+          <a href="https://www.amazon.co.uk/dp/B0H575F7S9" target="_blank" rel="noopener">Find on Amazon &rarr;</a>
         </div>
       </div>
     </div>
@@ -570,7 +658,7 @@
           <h3>Botanical Flowers</h3>
           <p class="book-hook">Fifteen British wildflowers. A drawing guide and colouring page for each one. No experience required.</p>
           <div class="meta">A Drawing &amp; Colouring Book &middot; &pound;12.99</div>
-          <span class="coming-soon">Coming soon on Amazon</span>
+          <a href="https://www.amazon.co.uk/dp/B0H3LLWNR8" target="_blank" rel="noopener">Find on Amazon &rarr;</a>
         </div>
         <div class="book">
           <div class="book-cover clickable" onclick="openLb('h2')">
@@ -580,7 +668,7 @@
           <h3>Botanical Trees</h3>
           <p class="book-hook">Fifteen British trees &mdash; Oak, Beech, Silver Birch, Wild Cherry. Draw it, then colour it.</p>
           <div class="meta">A Drawing &amp; Colouring Book &middot; &pound;12.99</div>
-          <span class="coming-soon">Coming soon on Amazon</span>
+          <a href="https://www.amazon.co.uk/dp/B0H3NKZ73V" target="_blank" rel="noopener">Find on Amazon &rarr;</a>
         </div>
         <div class="book">
           <div class="book-cover clickable" onclick="openLb('h3')">
@@ -590,7 +678,7 @@
           <h3>Botanical Scenery</h3>
           <p class="book-hook">Fifteen British landscapes &mdash; coastal cliffs, chalk downs, ancient woodland, moorland.</p>
           <div class="meta">A Drawing &amp; Colouring Book &middot; &pound;12.99</div>
-          <span class="coming-soon">Coming soon on Amazon</span>
+          <a href="https://www.amazon.co.uk/dp/B0H3Q1PFWZ" target="_blank" rel="noopener">Find on Amazon &rarr;</a>
         </div>
         <div class="book">
           <div class="book-cover clickable" onclick="openLb('h4')">
@@ -600,7 +688,49 @@
           <h3>Botanical Animals</h3>
           <p class="book-hook">Fifteen British animals &mdash; Red Fox, Barn Owl, Otter, Kingfisher. Each one in its own habitat.</p>
           <div class="meta">A Drawing &amp; Colouring Book &middot; &pound;12.99</div>
-          <span class="coming-soon">Coming soon on Amazon</span>
+          <a href="https://www.amazon.co.uk/dp/B0H3Q79CLY" target="_blank" rel="noopener">Find on Amazon &rarr;</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tinderwick Press -->
+    <div class="tab-panel" id="tab-tinderwick">
+      <p class="tab-desc">Funny gift books for the people who keep everything running. One inside joke per profession, warm and knowing, written from the inside.</p>
+      <div class="books-grid">
+        <div class="book">
+          <div class="book-cover"><img src="images/tinderwick-nurse.png" alt="101 Things Only Nurses Will Find Funny"></div>
+          <h3>101 Things Only Nurses Will Find Funny</h3>
+          <p class="book-hook">For the nurses who carry a lot and deserve to laugh about it.</p>
+          <div class="meta">Paperback &middot; &pound;9.99</div>
+          <a href="https://www.amazon.co.uk/dp/B0H8SQ6QM7" target="_blank" rel="noopener">Find on Amazon &rarr;</a>
+        </div>
+        <div class="book">
+          <div class="book-cover"><img src="images/tinderwick-doctor.png" alt="101 Things Only Doctors Will Find Funny"></div>
+          <h3>101 Things Only Doctors Will Find Funny</h3>
+          <p class="book-hook">For everyone who has survived an on-call rota.</p>
+          <div class="meta">Paperback &middot; &pound;9.99</div>
+          <a href="https://www.amazon.co.uk/dp/B0H8SL6ZH2" target="_blank" rel="noopener">Find on Amazon &rarr;</a>
+        </div>
+        <div class="book">
+          <div class="book-cover"><img src="images/tinderwick-police.png" alt="101 Things Only Police Officers Will Find Funny"></div>
+          <h3>101 Things Only Police Officers Will Find Funny</h3>
+          <p class="book-hook">For everyone who has survived a night shift.</p>
+          <div class="meta">Paperback &middot; &pound;9.99</div>
+          <span class="coming-soon">Coming soon</span>
+        </div>
+        <div class="book">
+          <div class="book-cover"><img src="images/tinderwick-paramedic.png" alt="101 Things Only Paramedics Will Find Funny"></div>
+          <h3>101 Things Only Paramedics Will Find Funny</h3>
+          <p class="book-hook">For the first through the door.</p>
+          <div class="meta">Paperback &middot; &pound;9.99</div>
+          <span class="coming-soon">Coming soon</span>
+        </div>
+        <div class="book">
+          <div class="book-cover"><img src="images/tinderwick-teacher.png" alt="101 Things Only Teachers Will Find Funny"></div>
+          <h3>101 Things Only Teachers Will Find Funny</h3>
+          <p class="book-hook">For everyone who has survived a Sunday-night marking pile.</p>
+          <div class="meta">Paperback &middot; &pound;9.99</div>
+          <span class="coming-soon">Coming soon</span>
         </div>
       </div>
     </div>
@@ -804,23 +934,68 @@
       pages: []
     },
     k4: { title: 'The Calm Puzzle Collection', sub: 'Volume Four · Kettle Press', asin: 'B0H39BSCM6',
-      images: ['images/interior/kettle/v4-01-hero.jpg','images/interior/kettle/v4-02-inside.jpg','images/interior/kettle/v4-03-features.jpg'],
-      pages: []
+      images: [], pages: [
+        { label: 'Word search', prompt: 'Themed word search, large print.' },
+        { label: 'Sudoku', prompt: 'Gentle, moderate, or challenging.' },
+        { label: 'Cryptogram', prompt: 'Decode the phrase, one letter at a time.' }
+      ]
+    },
+    k5: { title: 'The Calm Puzzle Collection', sub: 'Volume Five · Kettle Press', asin: 'B0H55BYXY9',
+      images: [], pages: [
+        { label: 'Word search', prompt: '33 themed word searches, large print.' },
+        { label: 'Sudoku', prompt: '28 sudoku across three difficulty levels.' },
+        { label: 'Cryptogram', prompt: '16 cryptograms. Decode at your own pace.' }
+      ]
+    },
+    k6: { title: 'The Calm Puzzle Collection', sub: 'Volume Six · Kettle Press', asin: 'B0H4W44YGY',
+      images: [], pages: [
+        { label: 'British Seaside', prompt: 'Themed word searches, large print.' },
+        { label: 'Kakuro', prompt: 'New in Vol 6 — 8 kakuro puzzles.' },
+        { label: 'Cryptogram', prompt: 'Short phrases to decode, one letter at a time.' }
+      ]
+    },
+    k7: { title: 'The Calm Puzzle Collection', sub: 'Volume Seven · Kettle Press', asin: 'B0H4VR55CW',
+      images: [], pages: [
+        { label: 'British Countryside', prompt: 'Themed word searches, large print.' },
+        { label: 'Sudoku', prompt: '28 sudoku across three difficulty levels.' },
+        { label: 'Kakuro', prompt: '8 kakuro puzzles. A quiet challenge.' }
+      ]
+    },
+    k8: { title: 'The Calm Puzzle Collection', sub: 'Volume Eight · Kettle Press', asin: 'B0H4VYYWDZ',
+      images: [], pages: [
+        { label: 'British Towns', prompt: 'Themed word searches, large print.' },
+        { label: 'Sudoku', prompt: '28 sudoku across three difficulty levels.' },
+        { label: 'Kakuro', prompt: '8 kakuro puzzles. All answers at the back.' }
+      ]
+    },
+    k9: { title: 'The Calm Puzzle Collection', sub: 'Volume Nine · Kettle Press', asin: 'B0H4VXT7DH',
+      images: [], pages: [
+        { label: 'Home and Garden', prompt: 'Themed word searches, large print.' },
+        { label: 'Sudoku', prompt: '28 sudoku across three difficulty levels.' },
+        { label: 'Kakuro', prompt: '8 kakuro puzzles. No timer. No score.' }
+      ]
+    },
+    k10: { title: 'The Calm Puzzle Collection', sub: 'Volume Ten · Kettle Press', asin: 'B0H4W58PM8',
+      images: [], pages: [
+        { label: 'British Seasons', prompt: 'Themed word searches, large print.' },
+        { label: 'Sudoku', prompt: '28 sudoku across three difficulty levels.' },
+        { label: 'Kakuro', prompt: '8 kakuro puzzles. Completes the series.' }
+      ]
     },
     // Heather Press
-    h1: { title: 'Botanical Flowers', sub: 'Volume One · Heather Press', asin: '',
+    h1: { title: 'Botanical Flowers', sub: 'Volume One · Heather Press', asin: 'B0H3LLWNR8',
       images: ['images/interior/heather/v1-01-hero.jpg','images/interior/heather/v1-02-inside.jpg','images/interior/heather/v1-03-features.jpg'],
       pages: []
     },
-    h2: { title: 'Botanical Trees', sub: 'Volume Two · Heather Press', asin: '',
+    h2: { title: 'Botanical Trees', sub: 'Volume Two · Heather Press', asin: 'B0H3NKZ73V',
       images: ['images/interior/heather/v2-01-hero.jpg','images/interior/heather/v2-02-inside.jpg','images/interior/heather/v2-03-features.jpg'],
       pages: []
     },
-    h3: { title: 'Botanical Scenery', sub: 'Volume Three · Heather Press', asin: '',
+    h3: { title: 'Botanical Scenery', sub: 'Volume Three · Heather Press', asin: 'B0H3Q1PFWZ',
       images: ['images/interior/heather/v3-01-hero.jpg','images/interior/heather/v3-02-inside.jpg','images/interior/heather/v3-03-features.jpg'],
       pages: []
     },
-    h4: { title: 'Botanical Animals', sub: 'Volume Four · Heather Press', asin: '',
+    h4: { title: 'Botanical Animals', sub: 'Volume Four · Heather Press', asin: 'B0H3Q79CLY',
       images: ['images/interior/heather/v4-01-hero.jpg','images/interior/heather/v4-02-inside.jpg','images/interior/heather/v4-03-features.jpg'],
       pages: []
     }
@@ -882,4 +1057,4 @@
 </script>
 
 </body>
-</html> 
+</html>
