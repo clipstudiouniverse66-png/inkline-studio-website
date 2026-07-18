@@ -175,6 +175,20 @@
   .newsletter .form-area p { font-size: 15px; }
   .newsletter .form-area a:not(.btn) { color: var(--cream); }
 
+  /* CONTACT */
+  .contact { background: var(--cream); color: var(--navy); }
+  .contact h2 { color: var(--navy); }
+  .contact p { font-size: 18px; line-height: 1.7; }
+  .contact .form-wrap { max-width: 520px; margin: 36px auto 0; }
+  .contact label { display:block; font-size:12px; letter-spacing:0.08em; text-transform:uppercase; opacity:0.55; margin:18px 0 6px; }
+  .contact input, .contact textarea { width:100%; padding:12px 14px; border:1px solid var(--rule-dark); background:transparent; color:var(--navy); font-family:inherit; font-size:16px; box-sizing:border-box; }
+  .contact input:focus, .contact textarea:focus { outline:none; border-color:var(--navy); }
+  .contact textarea { min-height:130px; resize:vertical; }
+  .contact .center { text-align:center; }
+  .contact button.btn-on-cream { margin-top:24px; cursor:pointer; }
+  .contact .or { text-align:center; margin-top:26px; font-size:15px; opacity:0.75; }
+  .contact .or a { color:var(--navy); font-style:italic; }
+
   /* FOOTER */
   footer {
     background: var(--cream); color: var(--navy);
@@ -781,6 +795,28 @@
       </p>
     </div>
     <div class="hedera">&#10087;</div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="narrow">
+    <div class="section-label" style="text-align:center; font-size:13px; letter-spacing:0.25em; text-transform:uppercase; opacity:0.6; margin-bottom:12px;">Contact</div>
+    <h2 style="text-align:center;">Get in touch.</h2>
+    <p style="text-align:center;">Questions, bulk orders, press, or just to say hello. We read every message.</p>
+    <div class="form-wrap">
+      <form onsubmit="event.preventDefault();var f=this;var b=f.querySelector('button');b.textContent='Sending…';b.disabled=true;fetch('https://formsubmit.co/ajax/hello@inklinestudio.co.uk',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({_subject:'New enquiry from inklinestudio.co.uk',Name:f.cname.value,Email:f.cemail.value,Message:f.cmsg.value})}).then(function(r){return r.json()}).then(function(){f.style.display='none';document.getElementById('contactThanks').style.display='block';}).catch(function(){b.textContent='Send message';b.disabled=false;alert('Something went wrong. Please email hello@inklinestudio.co.uk directly.');});return false;">
+        <label for="cname">Name</label>
+        <input id="cname" name="cname" type="text" required>
+        <label for="cemail">Email</label>
+        <input id="cemail" name="cemail" type="email" required>
+        <label for="cmsg">Message</label>
+        <textarea id="cmsg" name="cmsg" required></textarea>
+        <div class="center"><button class="btn btn-on-cream" type="submit">Send message</button></div>
+      </form>
+      <div id="contactThanks" style="display:none; text-align:center; font-size:18px; padding:18px 0;">Thank you &mdash; your message is on its way. We&rsquo;ll reply to your email soon.</div>
+      <div class="or">or email us directly at <a href="mailto:hello@inklinestudio.co.uk">hello@inklinestudio.co.uk</a></div>
+    </div>
   </div>
 </section>
 
