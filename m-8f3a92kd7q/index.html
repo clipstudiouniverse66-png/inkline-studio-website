@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Inkline Studio — Sales Dashboard</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+  :root{--navy:#1B2240;--navy2:#252c50;--cream:#F5EFE0;--gold:#C6A450;--pale:#7882A5;--soft:#aeb4cc;}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Georgia',serif;background:var(--navy);color:var(--cream);padding:32px 22px 60px;}
+  .wrap{max-width:1000px;margin:0 auto;}
+  header{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:12px;border-bottom:1px solid #34406e;padding-bottom:18px;margin-bottom:26px;}
+  h1{font-size:26px;letter-spacing:.02em;}
+  .sub{color:var(--pale);font-size:13px;margin-top:4px;}
+  .updated{color:var(--gold);font-size:13px;font-style:italic;}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-bottom:30px;}
+  .card{background:var(--navy2);border:1px solid #34406e;border-radius:12px;padding:18px 16px;}
+  .card .n{font-size:34px;font-weight:bold;color:var(--cream);}
+  .card .l{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--pale);margin-top:4px;}
+  .card .s{font-size:12px;color:var(--soft);margin-top:6px;}
+  .panel{background:var(--navy2);border:1px solid #34406e;border-radius:12px;padding:20px;margin-bottom:26px;}
+  .panel h2{font-size:16px;color:var(--gold);margin-bottom:14px;font-weight:normal;letter-spacing:.05em;}
+  table{width:100%;border-collapse:collapse;font-size:14px;}
+  th,td{text-align:left;padding:9px 8px;border-bottom:1px solid #2c3560;}
+  th{color:var(--pale);font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:normal;}
+  td.num{text-align:right;font-variant-numeric:tabular-nums;}
+  .imp{color:var(--gold);font-size:12px;}
+  .zero{color:var(--pale);font-style:italic;}
+  .note{color:var(--soft);font-size:13px;line-height:1.6;}
+  a{color:var(--soft);}
+  .chartbox{height:260px;}
+  .flag{background:#3a2c1a;border:1px solid var(--gold);border-radius:10px;padding:12px 16px;color:#e8d9b0;font-size:13px;margin-bottom:24px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <h1>Inkline Studio &middot; Sales Dashboard</h1>
+      <div class="sub">Across all imprints &middot; Inkline Calm, Pawline, Kettle, Heather, Tinderwick</div>
+    </div>
+    <div class="updated" id="updated">Live from KDP &middot; lifetime to 29 July 2026</div>
+  </header>
+
+  <div class="flag" id="flag">
+    Milestone: the Tinderwick gift line just made its first two sales (Paramedics + Police). 10 titles have now sold. Still 0 eBook / 0 KU &mdash; the new ebooks haven&rsquo;t converted yet, and reviews remain the real bottleneck.
+  </div>
+
+  <div class="cards">
+    <div class="card"><div class="n">24</div><div class="l">Units sold (lifetime)</div><div class="s">All paperback &middot; +2 since 28 Jul</div></div>
+    <div class="card"><div class="n">0</div><div class="l">eBook units</div><div class="s">5 Tinderwick ebooks live</div></div>
+    <div class="card"><div class="n">0</div><div class="l">KU pages read</div><div class="s">Kindle Unlimited</div></div>
+    <div class="card"><div class="n">3</div><div class="l">Reviews (total)</div><div class="s">Puzzle Vol 1, Reading, Botanical Trees</div></div>
+    <div class="card"><div class="n">11&nbsp;/&nbsp;39</div><div class="l">Titles that have sold</div><div class="s">28 at zero</div></div>
+  </div>
+
+  <div class="panel">
+    <h2>Units sold by title</h2>
+    <div class="chartbox"><canvas id="bar"></canvas></div>
+  </div>
+
+  <div class="panel">
+    <h2>Books that have sold</h2>
+    <table id="tbl">
+      <thead><tr><th>Title</th><th>Imprint</th><th style="text-align:right">Units</th><th>ASIN</th></tr></thead>
+      <tbody></tbody>
+    </table>
+    <p class="note" style="margin-top:14px">The other 29 live titles (3 of the 5 Tinderwick books, the Kakuro volumes, and most Calm and Pawline titles) have 0 sales lifetime.</p>
+  </div>
+
+  <div class="panel">
+    <h2>By imprint</h2>
+    <table>
+      <thead><tr><th>Imprint</th><th style="text-align:right">Units</th></tr></thead>
+      <tbody>
+        <tr><td>Inkline Calm</td><td class="num">9</td></tr>
+        <tr><td>Heather Press</td><td class="num">7</td></tr>
+        <tr><td>Tinderwick Press</td><td class="num">4</td></tr>
+        <tr><td>Pawline Press</td><td class="num">3</td></tr>
+        <tr><td>Kettle Press</td><td class="num">1</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="panel">
+    <h2>Read the numbers</h2>
+    <p class="note">
+      &bull; Top 4 titles (Garden, Botanical Flowers, Reading, Botanical Trees) are 15 of 22 units &mdash; 68% of all sales.<br/>
+      &bull; Tinderwick gift line building: 4 sales across 3 titles (Paramedics 2, Police 1, Doctor 1). This is where the ads and social are pointed &mdash; keep feeding it.<br/>
+      &bull; Zero eBook units and zero KU pages: the new ebooks are the chance to change that.<br/>
+      &bull; The real bottleneck is still reviews: 3 across the whole catalogue (Puzzle Vol 1, Reading, Botanical Trees), and all 5 Tinderwick gift books still on zero. Getting the first review onto a selling Tinderwick title is the highest-value next move.
+    </p>
+  </div>
+</div>
+
+<script>
+const sellers=[
+ {t:"The Calm Garden Journal",i:"Inkline Calm",u:5,a:"B0H1PR62VZ"},
+ {t:"The Calm Reading Journal",i:"Inkline Calm",u:3,a:"B0GZKDNTY3"},
+ {t:"Botanical Flowers",i:"Heather",u:4,a:"B0H3LLWNR8"},
+ {t:"Botanical Trees",i:"Heather",u:3,a:"B0H3NKZ73V"},
+ {t:"The New Kitten Journal",i:"Pawline",u:2,a:"B0H2QNVJFZ"},
+ {t:"101 Things Only Paramedics Will Find Funny",i:"Tinderwick",u:2,a:"B0H8Z4NBYB"},
+ {t:"The Calm Work Journal",i:"Inkline Calm",u:1,a:"B0GZKWSWPC"},
+ {t:"The Dog Walking Journal",i:"Pawline",u:1,a:"B0H2QCVDDH"},
+ {t:"Calm Puzzle Collection Vol 1",i:"Kettle",u:1,a:"B0H2XJLCK7"},
+ {t:"101 Things Only Police Will Find Funny",i:"Tinderwick",u:1,a:"B0H8SKT2T8"},
+ {t:"101 Things Only Doctors Will Find Funny",i:"Tinderwick",u:1,a:"B0H8SL6ZH2"},
+];
+const tb=document.querySelector('#tbl tbody');
+sellers.forEach(s=>{const tr=document.createElement('tr');
+  const asin=s.a?`<a href="https://www.amazon.co.uk/dp/${s.a}" target="_blank">${s.a}</a>`:'<span class="zero">&mdash;</span>';
+  tr.innerHTML=`<td>${s.t}</td><td class="imp">${s.i}</td><td class="num">${s.u}</td><td>${asin}</td>`;
+  tb.appendChild(tr);});
+new Chart(document.getElementById('bar'),{type:'bar',
+  data:{labels:sellers.map(s=>s.t.replace('The ','')),datasets:[{data:sellers.map(s=>s.u),backgroundColor:'#C6A450',borderRadius:5}]},
+  options:{plugins:{legend:{display:false}},scales:{
+    x:{ticks:{color:'#aeb4cc',font:{size:10},maxRotation:40,minRotation:40},grid:{display:false}},
+    y:{ticks:{color:'#aeb4cc',stepSize:1},grid:{color:'#2c3560'},beginAtZero:true}}}});
+</script>
+</body>
+</html>
