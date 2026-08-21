@@ -103,12 +103,13 @@
   }
   .book { text-align: center; }
   .book-cover {
-    width: 100%; aspect-ratio: 2/3; background: var(--navy-warm);
-    overflow: hidden; margin-bottom: 24px;
-    box-shadow: 0 4px 20px rgba(27, 34, 64, 0.1);
+    width: 100%; aspect-ratio: 2/3; background: transparent;
+    overflow: visible; margin-bottom: 24px;
+    box-shadow: none;
     position: relative;
+    display: flex; align-items: flex-end; justify-content: center;
   }
-  .book-cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .book-cover img { width: 100%; height: 100%; object-fit: contain; display: block; }
   .book-cover.clickable {
     cursor: pointer;
     transition: box-shadow 0.3s ease;
@@ -326,7 +327,7 @@
 <section class="books" id="books">
   <div class="container">
     <div class="section-label">Our Books</div>
-    <h2>Five imprints. One quiet shelf.</h2>
+    <h2>Six imprints. One quiet shelf.</h2>
     <p class="narrow" style="text-align: center; opacity: 0.75; margin-bottom: 0;">
       Journals, planners, puzzles, nature books, and funny gift books &mdash; designed in the United Kingdom.
     </p>
@@ -340,6 +341,7 @@
       <button class="pub-tab" data-tab="kettle" role="tab"><img src="images/logo-kettle.png" alt="" style="height:32px;width:auto;opacity:0.7;"><span>Kettle Press</span></button>
       <button class="pub-tab" data-tab="heather" role="tab"><img src="images/logo-heather.png" alt="" style="height:32px;width:auto;opacity:0.7;"><span>Heather Press</span></button>
       <button class="pub-tab" data-tab="tinderwick" role="tab"><span style="display:block;height:32px;line-height:32px;font-style:italic;font-size:22px;opacity:0.7;">TP</span><span>Tinderwick Press</span></button>
+      <button class="pub-tab" data-tab="feather" role="tab"><span style="display:block;height:32px;line-height:32px;font-style:italic;font-size:22px;opacity:0.7;">FP</span><span>Feather Press</span></button>
     </div>
 
     <!-- Inkline Studio -->
@@ -349,7 +351,7 @@
 
         <div class="book">
           <div class="book-cover clickable" onclick="openLb('b1')">
-            <img src="images/book1.png" alt="The Calm Semester Planner">
+            <img src="images/book1-3d.png" alt="The Calm Semester Planner">
             <div class="peek-hint">
               <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#F5EFE0" stroke-width="1.2"/><line x1="6" y1="3" x2="6" y2="9" stroke="#F5EFE0" stroke-width="1.2"/><line x1="3" y1="6" x2="9" y2="6" stroke="#F5EFE0" stroke-width="1.2"/></svg>
               <span>Peek inside</span>
@@ -363,7 +365,7 @@
 
         <div class="book">
           <div class="book-cover clickable" onclick="openLb('b2')">
-            <img src="images/book2.png" alt="The Calm Exam Season Journal">
+            <img src="images/book2-3d.png" alt="The Calm Exam Season Journal">
             <div class="peek-hint">
               <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#F5EFE0" stroke-width="1.2"/><line x1="6" y1="3" x2="6" y2="9" stroke="#F5EFE0" stroke-width="1.2"/><line x1="3" y1="6" x2="9" y2="6" stroke="#F5EFE0" stroke-width="1.2"/></svg>
               <span>Peek inside</span>
@@ -377,7 +379,7 @@
 
         <div class="book">
           <div class="book-cover clickable" onclick="openLb('b3')">
-            <img src="images/book3.png" alt="The Calm Reading Journal">
+            <img src="images/book3-3d.png" alt="The Calm Reading Journal">
             <div class="peek-hint">
               <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#F5EFE0" stroke-width="1.2"/><line x1="6" y1="3" x2="6" y2="9" stroke="#F5EFE0" stroke-width="1.2"/><line x1="3" y1="6" x2="9" y2="6" stroke="#F5EFE0" stroke-width="1.2"/></svg>
               <span>Peek inside</span>
@@ -391,7 +393,7 @@
 
         <div class="book">
           <div class="book-cover clickable" onclick="openLb('b4')">
-            <img src="images/book4.png" alt="The Calm Work Journal">
+            <img src="images/book4-3d.png" alt="The Calm Work Journal">
             <div class="peek-hint">
               <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#F5EFE0" stroke-width="1.2"/><line x1="6" y1="3" x2="6" y2="9" stroke="#F5EFE0" stroke-width="1.2"/><line x1="3" y1="6" x2="9" y2="6" stroke="#F5EFE0" stroke-width="1.2"/></svg>
               <span>Peek inside</span>
@@ -405,7 +407,7 @@
 
         <div class="book">
           <div class="book-cover clickable" onclick="openLb('b5')">
-            <img src="images/book5.png" alt="The Calm Restart Journal">
+            <img src="images/book5-3d.png" alt="The Calm Restart Journal">
             <div class="peek-hint">
               <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#F5EFE0" stroke-width="1.2"/><line x1="6" y1="3" x2="6" y2="9" stroke="#F5EFE0" stroke-width="1.2"/><line x1="3" y1="6" x2="9" y2="6" stroke="#F5EFE0" stroke-width="1.2"/></svg>
               <span>Peek inside</span>
@@ -419,7 +421,7 @@
 
         <div class="book">
           <div class="book-cover clickable" onclick="openLb('b6')">
-            <img src="images/book6.png" alt="The Calm Sunday Planner">
+            <img src="images/book6-3d.png" alt="The Calm Sunday Planner">
             <div class="peek-hint">
               <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#F5EFE0" stroke-width="1.2"/><line x1="6" y1="3" x2="6" y2="9" stroke="#F5EFE0" stroke-width="1.2"/><line x1="3" y1="6" x2="9" y2="6" stroke="#F5EFE0" stroke-width="1.2"/></svg>
               <span>Peek inside</span>
@@ -433,7 +435,7 @@
 
         <div class="book">
           <div class="book-cover clickable" onclick="openLb('b7')">
-            <img src="images/book7.png" alt="The Calm Garden Journal">
+            <img src="images/book7-3d.png" alt="The Calm Garden Journal">
             <div class="peek-hint">
               <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#F5EFE0" stroke-width="1.2"/><line x1="6" y1="3" x2="6" y2="9" stroke="#F5EFE0" stroke-width="1.2"/><line x1="3" y1="6" x2="9" y2="6" stroke="#F5EFE0" stroke-width="1.2"/></svg>
               <span>Peek inside</span>
@@ -447,7 +449,7 @@
 
         <div class="book">
           <div class="book-cover clickable" onclick="openLb('b8')">
-            <img src="images/book8.png" alt="The Calm Comeback Journal">
+            <img src="images/book8-3d.png" alt="The Calm Comeback Journal">
             <div class="peek-hint">
               <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#F5EFE0" stroke-width="1.2"/><line x1="6" y1="3" x2="6" y2="9" stroke="#F5EFE0" stroke-width="1.2"/><line x1="3" y1="6" x2="9" y2="6" stroke="#F5EFE0" stroke-width="1.2"/></svg>
               <span>Peek inside</span>
@@ -461,7 +463,7 @@
 
         <div class="book">
           <div class="book-cover clickable" onclick="openLb('b9')">
-            <img src="images/book9.png" alt="The Calm Movement Journal">
+            <img src="images/book9-3d.png" alt="The Calm Movement Journal">
             <div class="peek-hint">
               <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#F5EFE0" stroke-width="1.2"/><line x1="6" y1="3" x2="6" y2="9" stroke="#F5EFE0" stroke-width="1.2"/><line x1="3" y1="6" x2="9" y2="6" stroke="#F5EFE0" stroke-width="1.2"/></svg>
               <span>Peek inside</span>
@@ -481,49 +483,49 @@
       <p class="tab-desc">Journals for pet owners who pay attention. Cream paper, warm brown type.</p>
       <div class="books-grid-4">
         <div class="book">
-          <div class="book-cover clickable" onclick="openLb('pw1')"><img src="images/pawline-1.png" alt="The Dog Life Journal"><div class="peek-hint"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#F5EFE0" stroke-width="1.2"/><line x1="6" y1="3" x2="6" y2="9" stroke="#F5EFE0" stroke-width="1.2"/><line x1="3" y1="6" x2="9" y2="6" stroke="#F5EFE0" stroke-width="1.2"/></svg><span>Peek inside</span></div></div>
+          <div class="book-cover clickable" onclick="openLb('pw1')"><img src="images/pawline-1-3d.png" alt="The Dog Life Journal"><div class="peek-hint"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#F5EFE0" stroke-width="1.2"/><line x1="6" y1="3" x2="6" y2="9" stroke="#F5EFE0" stroke-width="1.2"/><line x1="3" y1="6" x2="9" y2="6" stroke="#F5EFE0" stroke-width="1.2"/></svg><span>Peek inside</span></div></div>
           <h3>The Dog Life Journal</h3>
           <div class="meta">Paperback &middot; &pound;12.99</div>
           <a href="https://www.amazon.co.uk/dp/B0H2LP3FQC" target="_blank" rel="noopener">Find on Amazon &rarr;</a>
         </div>
         <div class="book">
-          <div class="book-cover clickable" onclick="openLb('pw2')"><img src="images/pawline-2.png" alt="The Cat Life Journal"><div class="peek-hint"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#F5EFE0" stroke-width="1.2"/><line x1="6" y1="3" x2="6" y2="9" stroke="#F5EFE0" stroke-width="1.2"/><line x1="3" y1="6" x2="9" y2="6" stroke="#F5EFE0" stroke-width="1.2"/></svg><span>Peek inside</span></div></div>
+          <div class="book-cover clickable" onclick="openLb('pw2')"><img src="images/pawline-2-3d.png" alt="The Cat Life Journal"><div class="peek-hint"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#F5EFE0" stroke-width="1.2"/><line x1="6" y1="3" x2="6" y2="9" stroke="#F5EFE0" stroke-width="1.2"/><line x1="3" y1="6" x2="9" y2="6" stroke="#F5EFE0" stroke-width="1.2"/></svg><span>Peek inside</span></div></div>
           <h3>The Cat Life Journal</h3>
           <div class="meta">Paperback &middot; &pound;12.99</div>
           <a href="https://www.amazon.co.uk/dp/B0H2MW9R8V" target="_blank" rel="noopener">Find on Amazon &rarr;</a>
         </div>
         <div class="book">
-          <div class="book-cover clickable" onclick="openLb('pw3')"><img src="images/pawline-3.png" alt="The New Puppy Journal"><div class="peek-hint"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#F5EFE0" stroke-width="1.2"/><line x1="6" y1="3" x2="6" y2="9" stroke="#F5EFE0" stroke-width="1.2"/><line x1="3" y1="6" x2="9" y2="6" stroke="#F5EFE0" stroke-width="1.2"/></svg><span>Peek inside</span></div></div>
+          <div class="book-cover clickable" onclick="openLb('pw3')"><img src="images/pawline-3-3d.png" alt="The New Puppy Journal"><div class="peek-hint"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#F5EFE0" stroke-width="1.2"/><line x1="6" y1="3" x2="6" y2="9" stroke="#F5EFE0" stroke-width="1.2"/><line x1="3" y1="6" x2="9" y2="6" stroke="#F5EFE0" stroke-width="1.2"/></svg><span>Peek inside</span></div></div>
           <h3>The New Puppy Journal</h3>
           <div class="meta">Paperback &middot; &pound;12.99</div>
           <a href="https://www.amazon.co.uk/dp/B0H2MWSH77" target="_blank" rel="noopener">Find on Amazon &rarr;</a>
         </div>
         <div class="book">
-          <div class="book-cover clickable" onclick="openLb('pw4')"><img src="images/pawline-4.png" alt="The New Kitten Journal"><div class="peek-hint"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#F5EFE0" stroke-width="1.2"/><line x1="6" y1="3" x2="6" y2="9" stroke="#F5EFE0" stroke-width="1.2"/><line x1="3" y1="6" x2="9" y2="6" stroke="#F5EFE0" stroke-width="1.2"/></svg><span>Peek inside</span></div></div>
+          <div class="book-cover clickable" onclick="openLb('pw4')"><img src="images/pawline-4-3d.png" alt="The New Kitten Journal"><div class="peek-hint"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#F5EFE0" stroke-width="1.2"/><line x1="6" y1="3" x2="6" y2="9" stroke="#F5EFE0" stroke-width="1.2"/><line x1="3" y1="6" x2="9" y2="6" stroke="#F5EFE0" stroke-width="1.2"/></svg><span>Peek inside</span></div></div>
           <h3>The New Kitten Journal</h3>
           <div class="meta">Paperback &middot; &pound;12.99</div>
           <a href="https://www.amazon.co.uk/dp/B0H2QNVJFZ" target="_blank" rel="noopener">Find on Amazon &rarr;</a>
         </div>
         <div class="book">
-          <div class="book-cover clickable" onclick="openLb('pw5')"><img src="images/pawline-5.png" alt="The Dog Walking Journal"><div class="peek-hint"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#F5EFE0" stroke-width="1.2"/><line x1="6" y1="3" x2="6" y2="9" stroke="#F5EFE0" stroke-width="1.2"/><line x1="3" y1="6" x2="9" y2="6" stroke="#F5EFE0" stroke-width="1.2"/></svg><span>Peek inside</span></div></div>
+          <div class="book-cover clickable" onclick="openLb('pw5')"><img src="images/pawline-5-3d.png" alt="The Dog Walking Journal"><div class="peek-hint"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#F5EFE0" stroke-width="1.2"/><line x1="6" y1="3" x2="6" y2="9" stroke="#F5EFE0" stroke-width="1.2"/><line x1="3" y1="6" x2="9" y2="6" stroke="#F5EFE0" stroke-width="1.2"/></svg><span>Peek inside</span></div></div>
           <h3>The Dog Walking Journal</h3>
           <div class="meta">Paperback &middot; &pound;12.99</div>
           <a href="https://www.amazon.co.uk/dp/B0H2QCVDDH" target="_blank" rel="noopener">Find on Amazon &rarr;</a>
         </div>
         <div class="book">
-          <div class="book-cover clickable" onclick="openLb('pw6')"><img src="images/pawline-6.png" alt="The New Rescue Journal"><div class="peek-hint"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#F5EFE0" stroke-width="1.2"/><line x1="6" y1="3" x2="6" y2="9" stroke="#F5EFE0" stroke-width="1.2"/><line x1="3" y1="6" x2="9" y2="6" stroke="#F5EFE0" stroke-width="1.2"/></svg><span>Peek inside</span></div></div>
+          <div class="book-cover clickable" onclick="openLb('pw6')"><img src="images/pawline-6-3d.png" alt="The New Rescue Journal"><div class="peek-hint"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#F5EFE0" stroke-width="1.2"/><line x1="6" y1="3" x2="6" y2="9" stroke="#F5EFE0" stroke-width="1.2"/><line x1="3" y1="6" x2="9" y2="6" stroke="#F5EFE0" stroke-width="1.2"/></svg><span>Peek inside</span></div></div>
           <h3>The New Rescue Journal</h3>
           <div class="meta">Paperback &middot; &pound;12.99</div>
           <a href="https://www.amazon.co.uk/dp/B0H2RXSK8W" target="_blank" rel="noopener">Find on Amazon &rarr;</a>
         </div>
         <div class="book">
-          <div class="book-cover clickable" onclick="openLb('pw7')"><img src="images/pawline-7.png" alt="The Training Journal"><div class="peek-hint"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#F5EFE0" stroke-width="1.2"/><line x1="6" y1="3" x2="6" y2="9" stroke="#F5EFE0" stroke-width="1.2"/><line x1="3" y1="6" x2="9" y2="6" stroke="#F5EFE0" stroke-width="1.2"/></svg><span>Peek inside</span></div></div>
+          <div class="book-cover clickable" onclick="openLb('pw7')"><img src="images/pawline-7-3d.png" alt="The Training Journal"><div class="peek-hint"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#F5EFE0" stroke-width="1.2"/><line x1="6" y1="3" x2="6" y2="9" stroke="#F5EFE0" stroke-width="1.2"/><line x1="3" y1="6" x2="9" y2="6" stroke="#F5EFE0" stroke-width="1.2"/></svg><span>Peek inside</span></div></div>
           <h3>The Training Journal</h3>
           <div class="meta">Paperback &middot; &pound;12.99</div>
           <a href="https://www.amazon.co.uk/dp/B0H2RS7HRD" target="_blank" rel="noopener">Find on Amazon &rarr;</a>
         </div>
         <div class="book">
-          <div class="book-cover clickable" onclick="openLb('pw8')"><img src="images/pawline-8.png" alt="The Senior Pet Journal"><div class="peek-hint"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#F5EFE0" stroke-width="1.2"/><line x1="6" y1="3" x2="6" y2="9" stroke="#F5EFE0" stroke-width="1.2"/><line x1="3" y1="6" x2="9" y2="6" stroke="#F5EFE0" stroke-width="1.2"/></svg><span>Peek inside</span></div></div>
+          <div class="book-cover clickable" onclick="openLb('pw8')"><img src="images/pawline-8-3d.png" alt="The Senior Pet Journal"><div class="peek-hint"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#F5EFE0" stroke-width="1.2"/><line x1="6" y1="3" x2="6" y2="9" stroke="#F5EFE0" stroke-width="1.2"/><line x1="3" y1="6" x2="9" y2="6" stroke="#F5EFE0" stroke-width="1.2"/></svg><span>Peek inside</span></div></div>
           <h3>The Senior Pet Journal</h3>
           <div class="meta">Paperback &middot; &pound;12.99</div>
           <a href="https://www.amazon.co.uk/dp/B0H2RQ9F6G" target="_blank" rel="noopener">Find on Amazon &rarr;</a>
@@ -537,7 +539,7 @@
       <div class="books-grid-4">
         <div class="book">
           <div class="book-cover clickable" onclick="openLb('k1')">
-            <img src="images/kettle-1.png" alt="The Calm Puzzle Collection Vol 1">
+            <img src="images/kettle-1-3d.png" alt="The Calm Puzzle Collection Vol 1">
             <div class="peek-hint"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#F5EFE0" stroke-width="1.2"/><line x1="6" y1="3" x2="6" y2="9" stroke="#F5EFE0" stroke-width="1.2"/><line x1="3" y1="6" x2="9" y2="6" stroke="#F5EFE0" stroke-width="1.2"/></svg><span>Peek inside</span></div>
           </div>
           <h3>The Calm Puzzle Collection</h3>
@@ -547,7 +549,7 @@
         </div>
         <div class="book">
           <div class="book-cover clickable" onclick="openLb('k2')">
-            <img src="images/kettle-2.png" alt="The Calm Puzzle Collection Vol 2">
+            <img src="images/kettle-2-3d.png" alt="The Calm Puzzle Collection Vol 2">
             <div class="peek-hint"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#F5EFE0" stroke-width="1.2"/><line x1="6" y1="3" x2="6" y2="9" stroke="#F5EFE0" stroke-width="1.2"/><line x1="3" y1="6" x2="9" y2="6" stroke="#F5EFE0" stroke-width="1.2"/></svg><span>Peek inside</span></div>
           </div>
           <h3>The Calm Puzzle Collection</h3>
@@ -557,7 +559,7 @@
         </div>
         <div class="book">
           <div class="book-cover clickable" onclick="openLb('k3')">
-            <img src="images/kettle-3.png" alt="The Calm Puzzle Collection Vol 3">
+            <img src="images/kettle-3-3d.png" alt="The Calm Puzzle Collection Vol 3">
             <div class="peek-hint"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#F5EFE0" stroke-width="1.2"/><line x1="6" y1="3" x2="6" y2="9" stroke="#F5EFE0" stroke-width="1.2"/><line x1="3" y1="6" x2="9" y2="6" stroke="#F5EFE0" stroke-width="1.2"/></svg><span>Peek inside</span></div>
           </div>
           <h3>The Calm Puzzle Collection</h3>
@@ -567,7 +569,7 @@
         </div>
         <div class="book">
           <div class="book-cover clickable" onclick="openLb('k4')">
-            <img src="images/kettle-4.png" alt="The Calm Puzzle Collection Vol 4">
+            <img src="images/kettle-4-3d.png" alt="The Calm Puzzle Collection Vol 4">
             <div class="peek-hint"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#F5EFE0" stroke-width="1.2"/><line x1="6" y1="3" x2="6" y2="9" stroke="#F5EFE0" stroke-width="1.2"/><line x1="3" y1="6" x2="9" y2="6" stroke="#F5EFE0" stroke-width="1.2"/></svg><span>Peek inside</span></div>
           </div>
           <h3>The Calm Puzzle Collection</h3>
@@ -577,7 +579,7 @@
         </div>
         <div class="book">
           <div class="book-cover clickable" onclick="openLb('k5')">
-            <img src="images/kettle-5.png" alt="The Calm Puzzle Collection Vol 5">
+            <img src="images/kettle-5-3d.png" alt="The Calm Puzzle Collection Vol 5">
             <div class="peek-hint"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#F5EFE0" stroke-width="1.2"/><line x1="6" y1="3" x2="6" y2="9" stroke="#F5EFE0" stroke-width="1.2"/><line x1="3" y1="6" x2="9" y2="6" stroke="#F5EFE0" stroke-width="1.2"/></svg><span>Peek inside</span></div>
           </div>
           <h3>The Calm Puzzle Collection</h3>
@@ -587,7 +589,7 @@
         </div>
         <div class="book">
           <div class="book-cover clickable" onclick="openLb('k6')">
-            <img src="images/kettle-6.png" alt="The Calm Puzzle Collection Vol 6">
+            <img src="images/kettle-6-3d.png" alt="The Calm Puzzle Collection Vol 6">
             <div class="peek-hint"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#F5EFE0" stroke-width="1.2"/><line x1="6" y1="3" x2="6" y2="9" stroke="#F5EFE0" stroke-width="1.2"/><line x1="3" y1="6" x2="9" y2="6" stroke="#F5EFE0" stroke-width="1.2"/></svg><span>Peek inside</span></div>
           </div>
           <h3>The Calm Puzzle Collection</h3>
@@ -597,7 +599,7 @@
         </div>
         <div class="book">
           <div class="book-cover clickable" onclick="openLb('k7')">
-            <img src="images/kettle-7.png" alt="The Calm Puzzle Collection Vol 7">
+            <img src="images/kettle-7-3d.png" alt="The Calm Puzzle Collection Vol 7">
             <div class="peek-hint"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#F5EFE0" stroke-width="1.2"/><line x1="6" y1="3" x2="6" y2="9" stroke="#F5EFE0" stroke-width="1.2"/><line x1="3" y1="6" x2="9" y2="6" stroke="#F5EFE0" stroke-width="1.2"/></svg><span>Peek inside</span></div>
           </div>
           <h3>The Calm Puzzle Collection</h3>
@@ -607,7 +609,7 @@
         </div>
         <div class="book">
           <div class="book-cover clickable" onclick="openLb('k8')">
-            <img src="images/kettle-8.png" alt="The Calm Puzzle Collection Vol 8">
+            <img src="images/kettle-8-3d.png" alt="The Calm Puzzle Collection Vol 8">
             <div class="peek-hint"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#F5EFE0" stroke-width="1.2"/><line x1="6" y1="3" x2="6" y2="9" stroke="#F5EFE0" stroke-width="1.2"/><line x1="3" y1="6" x2="9" y2="6" stroke="#F5EFE0" stroke-width="1.2"/></svg><span>Peek inside</span></div>
           </div>
           <h3>The Calm Puzzle Collection</h3>
@@ -617,7 +619,7 @@
         </div>
         <div class="book">
           <div class="book-cover clickable" onclick="openLb('k9')">
-            <img src="images/kettle-9.png" alt="The Calm Puzzle Collection Vol 9">
+            <img src="images/kettle-9-3d.png" alt="The Calm Puzzle Collection Vol 9">
             <div class="peek-hint"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#F5EFE0" stroke-width="1.2"/><line x1="6" y1="3" x2="6" y2="9" stroke="#F5EFE0" stroke-width="1.2"/><line x1="3" y1="6" x2="9" y2="6" stroke="#F5EFE0" stroke-width="1.2"/></svg><span>Peek inside</span></div>
           </div>
           <h3>The Calm Puzzle Collection</h3>
@@ -627,7 +629,7 @@
         </div>
         <div class="book">
           <div class="book-cover clickable" onclick="openLb('k10')">
-            <img src="images/kettle-10.png" alt="The Calm Puzzle Collection Vol 10">
+            <img src="images/kettle-10-3d.png" alt="The Calm Puzzle Collection Vol 10">
             <div class="peek-hint"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#F5EFE0" stroke-width="1.2"/><line x1="6" y1="3" x2="6" y2="9" stroke="#F5EFE0" stroke-width="1.2"/><line x1="3" y1="6" x2="9" y2="6" stroke="#F5EFE0" stroke-width="1.2"/></svg><span>Peek inside</span></div>
           </div>
           <h3>The Calm Puzzle Collection</h3>
@@ -642,21 +644,21 @@
       <div class="books-grid-4">
 
         <div class="book">
-          <div class="book-cover"><img src="images/kakuro-1.png" alt="The Calm Kakuro Collection Volume One"></div>
+          <div class="book-cover"><img src="images/kakuro-1-3d.png" alt="The Calm Kakuro Collection Volume One"></div>
           <h3>The Calm Kakuro Collection</h3>
           <p class="book-hook">100 large print Kakuro puzzles: easy, medium and hard. The number puzzle, all on its own.</p>
           <div class="meta">Volume One &middot; Paperback &middot; &pound;12.99</div>
           <a href="https://www.amazon.co.uk/dp/B0H571VTZF" target="_blank" rel="noopener">Find on Amazon &rarr;</a>
         </div>
         <div class="book">
-          <div class="book-cover"><img src="images/kakuro-2.png" alt="The Calm Kakuro Collection Volume Two"></div>
+          <div class="book-cover"><img src="images/kakuro-2-3d.png" alt="The Calm Kakuro Collection Volume Two"></div>
           <h3>The Calm Kakuro Collection</h3>
           <p class="book-hook">100 fresh Kakuro puzzles. No repeats from Volume One. The same quiet format.</p>
           <div class="meta">Volume Two &middot; Paperback &middot; &pound;12.99</div>
           <a href="https://www.amazon.co.uk/dp/B0H577VSVD" target="_blank" rel="noopener">Find on Amazon &rarr;</a>
         </div>
         <div class="book">
-          <div class="book-cover"><img src="images/kakuro-3.png" alt="The Calm Kakuro Collection Volume Three"></div>
+          <div class="book-cover"><img src="images/kakuro-3-3d.png" alt="The Calm Kakuro Collection Volume Three"></div>
           <h3>The Calm Kakuro Collection</h3>
           <p class="book-hook">Another 100 large print Kakuro. Something good to do with a quiet hour.</p>
           <div class="meta">Volume Three &middot; Paperback &middot; &pound;12.99</div>
@@ -671,7 +673,7 @@
       <div class="books-grid-2">
         <div class="book">
           <div class="book-cover clickable" onclick="openLb('h1')">
-            <img src="images/heather-1.png" alt="Botanical Flowers Vol 1">
+            <img src="images/heather-1-3d.png" alt="Botanical Flowers Vol 1">
             <div class="peek-hint"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#F5EFE0" stroke-width="1.2"/><line x1="6" y1="3" x2="6" y2="9" stroke="#F5EFE0" stroke-width="1.2"/><line x1="3" y1="6" x2="9" y2="6" stroke="#F5EFE0" stroke-width="1.2"/></svg><span>Peek inside</span></div>
           </div>
           <h3>Botanical Flowers</h3>
@@ -681,7 +683,7 @@
         </div>
         <div class="book">
           <div class="book-cover clickable" onclick="openLb('h2')">
-            <img src="images/heather-2.png" alt="Botanical Trees Vol 2">
+            <img src="images/heather-2-3d.png" alt="Botanical Trees Vol 2">
             <div class="peek-hint"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#F5EFE0" stroke-width="1.2"/><line x1="6" y1="3" x2="6" y2="9" stroke="#F5EFE0" stroke-width="1.2"/><line x1="3" y1="6" x2="9" y2="6" stroke="#F5EFE0" stroke-width="1.2"/></svg><span>Peek inside</span></div>
           </div>
           <h3>Botanical Trees</h3>
@@ -691,7 +693,7 @@
         </div>
         <div class="book">
           <div class="book-cover clickable" onclick="openLb('h3')">
-            <img src="images/heather-3.png" alt="Botanical Scenery Vol 3">
+            <img src="images/heather-3-3d.png" alt="Botanical Scenery Vol 3">
             <div class="peek-hint"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#F5EFE0" stroke-width="1.2"/><line x1="6" y1="3" x2="6" y2="9" stroke="#F5EFE0" stroke-width="1.2"/><line x1="3" y1="6" x2="9" y2="6" stroke="#F5EFE0" stroke-width="1.2"/></svg><span>Peek inside</span></div>
           </div>
           <h3>Botanical Scenery</h3>
@@ -701,7 +703,7 @@
         </div>
         <div class="book">
           <div class="book-cover clickable" onclick="openLb('h4')">
-            <img src="images/heather-4.png" alt="Botanical Animals Vol 4">
+            <img src="images/heather-4-3d.png" alt="Botanical Animals Vol 4">
             <div class="peek-hint"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#F5EFE0" stroke-width="1.2"/><line x1="6" y1="3" x2="6" y2="9" stroke="#F5EFE0" stroke-width="1.2"/><line x1="3" y1="6" x2="9" y2="6" stroke="#F5EFE0" stroke-width="1.2"/></svg><span>Peek inside</span></div>
           </div>
           <h3>Botanical Animals</h3>
@@ -717,39 +719,70 @@
       <p class="tab-desc">Funny gift books for the people who keep everything running. One inside joke per profession, warm and knowing, written from the inside.</p>
       <div class="books-grid">
         <div class="book">
-          <div class="book-cover"><img src="images/tinderwick-nurse.png" alt="101 Things Only Nurses Will Find Funny"></div>
+          <div class="book-cover"><img src="images/tinderwick-nurse-3d.png" alt="101 Things Only Nurses Will Find Funny"></div>
           <h3>101 Things Only Nurses Will Find Funny</h3>
           <p class="book-hook">For the nurses who carry a lot and deserve to laugh about it.</p>
           <div class="meta">Paperback &middot; &pound;9.99</div>
           <a href="https://www.amazon.co.uk/dp/B0H8SQ6QM7" target="_blank" rel="noopener">Find on Amazon &rarr;</a>
         </div>
         <div class="book">
-          <div class="book-cover"><img src="images/tinderwick-doctor.png" alt="101 Things Only Doctors Will Find Funny"></div>
+          <div class="book-cover"><img src="images/tinderwick-doctor-3d.png" alt="101 Things Only Doctors Will Find Funny"></div>
           <h3>101 Things Only Doctors Will Find Funny</h3>
           <p class="book-hook">For everyone who has survived an on-call rota.</p>
           <div class="meta">Paperback &middot; &pound;9.99</div>
           <a href="https://www.amazon.co.uk/dp/B0H8SL6ZH2" target="_blank" rel="noopener">Find on Amazon &rarr;</a>
         </div>
         <div class="book">
-          <div class="book-cover"><img src="images/tinderwick-police.png" alt="101 Things Only Police Officers Will Find Funny"></div>
+          <div class="book-cover"><img src="images/tinderwick-police-3d.png" alt="101 Things Only Police Officers Will Find Funny"></div>
           <h3>101 Things Only Police Officers Will Find Funny</h3>
           <p class="book-hook">For everyone who has survived a night shift.</p>
           <div class="meta">Paperback &middot; &pound;9.99</div>
           <a href="https://www.amazon.co.uk/dp/B0H8SKT2T8" target="_blank" rel="noopener">Find on Amazon &rarr;</a>
         </div>
         <div class="book">
-          <div class="book-cover"><img src="images/tinderwick-paramedic.png" alt="101 Things Only Paramedics Will Find Funny"></div>
+          <div class="book-cover"><img src="images/tinderwick-paramedic-3d.png" alt="101 Things Only Paramedics Will Find Funny"></div>
           <h3>101 Things Only Paramedics Will Find Funny</h3>
           <p class="book-hook">For the first through the door.</p>
           <div class="meta">Paperback &middot; &pound;9.99</div>
           <a href="https://www.amazon.co.uk/dp/B0H8Z4NBYB" target="_blank" rel="noopener">Find on Amazon &rarr;</a>
         </div>
         <div class="book">
-          <div class="book-cover"><img src="images/tinderwick-teacher.png" alt="101 Things Only Teachers Will Find Funny"></div>
+          <div class="book-cover"><img src="images/tinderwick-teacher-3d.png" alt="101 Things Only Teachers Will Find Funny"></div>
           <h3>101 Things Only Teachers Will Find Funny</h3>
           <p class="book-hook">For everyone who has survived a Sunday-night marking pile.</p>
           <div class="meta">Paperback &middot; &pound;9.99</div>
           <a href="https://www.amazon.co.uk/dp/B0H8Z2RMZ5" target="_blank" rel="noopener">Find on Amazon &rarr;</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Feather Press -->
+    <div class="tab-panel" id="tab-feather">
+      <p class="tab-desc">Little pep-talk gift books for life's big moments. A warm, steady voice and the real psychology of why it helps, one page at a time.</p>
+      <div class="books-grid">
+        <div class="book">
+          <div class="book-cover"><img src="images/feather-deepbreath-3d.png" alt="Deep Breath"></div>
+          <h3>Deep Breath</h3>
+          <p class="book-hook">Little pep-talks for life's big moments, backed by real psychology. A calm voice for the exact day someone needs it.</p>
+          <div class="meta">Paperback &middot; &pound;14.99</div>
+          <!-- TODO: add Amazon ASIN when live: <a href="https://www.amazon.co.uk/dp/ASIN" target="_blank" rel="noopener">Find on Amazon &rarr;</a> -->
+          <span class="coming-soon">Coming soon on Amazon</span>
+        </div>
+        <div class="book">
+          <div class="book-cover"><img src="images/feather-newmums-3d.png" alt="Deep Breath: For New Mums"></div>
+          <h3>Deep Breath: For New Mums</h3>
+          <p class="book-hook">For the overwhelming, wonderful early days. A steady voice for a new or expecting mum, backed by real psychology.</p>
+          <div class="meta">Paperback &middot; &pound;14.99</div>
+          <!-- TODO: add Amazon ASIN when live -->
+          <span class="coming-soon">Coming soon on Amazon</span>
+        </div>
+        <div class="book">
+          <div class="book-cover"><img src="images/feather-retire-3d.png" alt="Deep Breath: Before You Retire"></div>
+          <h3>Deep Breath: Before You Retire</h3>
+          <p class="book-hook">For the last day and the new chapter. A calm voice for anyone about to retire, backed by real psychology.</p>
+          <div class="meta">Paperback &middot; &pound;14.99</div>
+          <!-- TODO: add Amazon ASIN when live -->
+          <span class="coming-soon">Coming soon on Amazon</span>
         </div>
       </div>
     </div>
