@@ -306,6 +306,45 @@
     .books-grid-4 { grid-template-columns: repeat(2, 1fr); gap: 32px 16px; }
     .lb-inner { padding: 40px 18px 28px; }
   }
+
+  /* ══════════ 2026 refresh: futuristic-calm layer ══════════ */
+  :root { --accent: #C6A450; }
+  @media (prefers-reduced-motion: no-preference){
+    .reveal{ opacity:0; transform:translateY(24px);
+      transition: opacity 1s cubic-bezier(.2,.7,.2,1), transform 1s cubic-bezier(.2,.7,.2,1); }
+    .reveal.in{ opacity:1; transform:none; }
+  }
+  /* Aurora depth behind the navy hero */
+  .hero{ position:relative; overflow:hidden; }
+  .hero::before{
+    content:''; position:absolute; inset:-25%; z-index:0; pointer-events:none;
+    background:
+      radial-gradient(38% 32% at 24% 20%, rgba(126,138,205,0.26), transparent 70%),
+      radial-gradient(42% 38% at 80% 28%, rgba(198,164,80,0.14), transparent 72%),
+      radial-gradient(55% 48% at 58% 104%, rgba(70,86,150,0.30), transparent 72%);
+    filter: blur(8px); animation: aurora 26s ease-in-out infinite alternate;
+  }
+  @keyframes aurora{ from{transform:translate3d(-2%,-1%,0) scale(1);} to{transform:translate3d(2%,2%,0) scale(1.08);} }
+  .hero > *{ position:relative; z-index:1; }
+  /* soft top glow on cream sections */
+  .books::before, .for-teams::before{
+    content:''; position:absolute; inset:0; z-index:0; pointer-events:none;
+    background: radial-gradient(62% 42% at 50% -4%, rgba(255,255,255,0.55), transparent 60%);
+  }
+  .books > .container, .for-teams > .container, .for-teams > .narrow{ position:relative; z-index:1; }
+  /* premium hover-lift on the 3D book covers */
+  .book{ transition: transform .45s cubic-bezier(.2,.7,.2,1); }
+  .book:hover{ transform: translateY(-12px); }
+  .book-cover img{ transition: filter .45s ease, transform .45s cubic-bezier(.2,.7,.2,1) !important; }
+  .book:hover .book-cover img{ filter: drop-shadow(0 30px 44px rgba(27,34,64,0.30)); }
+  /* smoother tab-panel entrance */
+  .tab-panel.active{ animation: panelIn .6s cubic-bezier(.2,.7,.2,1) both; }
+  @keyframes panelIn{ from{opacity:0; transform:translateY(16px);} to{opacity:1; transform:none;} }
+  .pub-tab{ transition: opacity .25s ease, border-color .25s ease; border-radius: 6px 6px 0 0; }
+  /* softer, modern buttons + links */
+  .btn{ border-radius: 999px; }
+  .book a{ display:inline-block; transition: letter-spacing .3s ease, opacity .2s ease; }
+  .book a:hover{ letter-spacing: 0.18em; }
 </style>
 </head>
 <body>
@@ -1127,5 +1166,16 @@
   document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeLb(); });
 </script>
 
+<script>
+  // Scroll-reveal (headings + text, not the tab cards)
+  (function(){
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    var sel = 'section:not(.hero) h2, section:not(.hero) p.lead, .tab-desc, .about p, .for-teams p, .contact p, .newsletter p, .books .section-label';
+    document.querySelectorAll(sel).forEach(function(el){ el.classList.add('reveal'); io.observe(el); });
+  })();
+</script>
 </body>
 </html>
