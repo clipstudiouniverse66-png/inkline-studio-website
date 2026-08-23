@@ -204,9 +204,11 @@
   /* Publisher Tabs */
   .pub-tabs {
     display: flex; justify-content: center; gap: 0;
+    justify-content: safe center;   /* fall back to flex-start when tabs overflow so the first (Inkline) tab stays reachable */
     border-bottom: 1px solid var(--rule-dark); margin: 48px 0 0;
     overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
+    scroll-padding-inline: 16px;
   }
   .pub-tabs::-webkit-scrollbar { display: none; }
   .pub-tab {
