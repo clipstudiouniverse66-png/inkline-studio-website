@@ -347,6 +347,32 @@
   .btn{ border-radius: 999px; }
   .book a{ display:inline-block; transition: letter-spacing .3s ease, opacity .2s ease; }
   .book a:hover{ letter-spacing: 0.18em; }
+  /* ══════════ conversion + trust layer (2026) ══════════ */
+  .trust-strip{ display:flex; flex-wrap:wrap; justify-content:center; gap:10px 26px;
+    margin:28px auto 0; max-width:820px; font-size:12px; letter-spacing:.14em;
+    text-transform:uppercase; opacity:.62; }
+  .trust-strip span{ display:inline-flex; align-items:center; gap:9px; white-space:nowrap; }
+  .trust-strip span::before{ content:""; width:5px; height:5px; border-radius:50%;
+    background:var(--accent,#C6A450); display:inline-block; }
+  .book a[href*="amazon"]::after{ content:"Printed in the UK · Sold & shipped by Amazon";
+    display:block; margin-top:9px; font-size:11px; letter-spacing:.06em; text-transform:none;
+    opacity:.42; font-style:italic; }
+  .gift-note{ display:inline-block; margin-top:10px; font-size:12px; letter-spacing:.16em;
+    text-transform:uppercase; color:var(--accent,#C6A450); opacity:.9; }
+  .gift-note::before{ content:"\2661\00a0\00a0"; }
+  /* FAQ */
+  .faq{ background:var(--cream); color:var(--navy); }
+  .faq .container{ max-width:760px; }
+  .faq h2{ text-align:center; }
+  .faq .faq-list{ margin-top:40px; }
+  .faq details{ border-top:1px solid var(--rule-dark); padding:20px 2px; }
+  .faq details:last-child{ border-bottom:1px solid var(--rule-dark); }
+  .faq summary{ cursor:pointer; font-size:19px; list-style:none; display:flex;
+    justify-content:space-between; align-items:center; gap:20px; }
+  .faq summary::-webkit-details-marker{ display:none; }
+  .faq summary::after{ content:"+"; font-size:26px; opacity:.45; line-height:1; }
+  .faq details[open] summary::after{ content:"\2013"; }
+  .faq details p{ margin-top:14px; opacity:.75; line-height:1.7; font-size:16px; }
 </style>
 </head>
 <body>
@@ -374,6 +400,13 @@
     </p>
 
     <p class="narrow" style="text-align:center;font-size:14px;font-style:italic;opacity:0.45;margin-top:16px;margin-bottom:0;">Click any cover to look inside.</p>
+
+    <div class="trust-strip">
+      <span>Designed in the United Kingdom</span>
+      <span>Printed on cream paper</span>
+      <span>Sold &amp; shipped by Amazon</span>
+      <span>Easy returns</span>
+    </div>
 
     <!-- Publisher Tabs -->
     <div class="pub-tabs" role="tablist">
@@ -522,6 +555,7 @@
     <!-- Pawline Press -->
     <div class="tab-panel" id="tab-pawline">
       <p class="tab-desc">Journals for pet owners who pay attention. Cream paper, warm brown type.</p>
+      <p class="gift-note">Made to be gifted</p>
       <div class="books-grid-4">
         <div class="book">
           <div class="book-cover clickable" onclick="openLb('pw1')"><img src="images/pawline-1-3d.png" alt="The Dog Life Journal"><div class="peek-hint"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#F5EFE0" stroke-width="1.2"/><line x1="6" y1="3" x2="6" y2="9" stroke="#F5EFE0" stroke-width="1.2"/><line x1="3" y1="6" x2="9" y2="6" stroke="#F5EFE0" stroke-width="1.2"/></svg><span>Peek inside</span></div></div>
@@ -758,6 +792,7 @@
     <!-- Tinderwick Press -->
     <div class="tab-panel" id="tab-tinderwick">
       <p class="tab-desc">Funny gift books for the people who keep everything running. One inside joke per profession, warm and knowing, written from the inside.</p>
+      <p class="gift-note">The gift that gets a laugh</p>
       <div class="books-grid">
         <div class="book">
           <div class="book-cover"><img src="images/tinderwick-nurse-3d.png" alt="101 Things Only Nurses Will Find Funny"></div>
@@ -800,6 +835,7 @@
     <!-- Feather Press -->
     <div class="tab-panel" id="tab-feather">
       <p class="tab-desc">Little pep-talk gift books for life's big moments. A warm, steady voice and the real psychology of why it helps, one page at a time.</p>
+      <p class="gift-note">For the moment someone needs it</p>
       <div class="books-grid">
         <div class="book">
           <div class="book-cover"><img src="images/feather-deepbreath-3d.png" alt="Deep Breath"></div>
@@ -850,6 +886,36 @@
     <p>Each book is shipped from the UK. Custom inserts available on orders of 100+. The pitch we make to your colleagues is the same pitch we make to everyone: a journal that doesn&rsquo;t moralise at the people using it.</p>
     <div class="center">
       <a class="email" href="mailto:hello@inklinestudio.co.uk?subject=Bulk%20order%20enquiry">hello@inklinestudio.co.uk</a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="section-label" style="text-align:center;font-size:13px;letter-spacing:0.25em;text-transform:uppercase;opacity:0.6;margin-bottom:12px;">Good to know</div>
+    <h2>Questions, quietly answered.</h2>
+    <div class="faq-list">
+      <details>
+        <summary>What paper are the books printed on?</summary>
+        <p>Cream paper throughout &mdash; softer on the eye than bright white, and the whole point of reaching for paper in the first place. Printed by Amazon and shipped from within the UK.</p>
+      </details>
+      <details>
+        <summary>Are the journals dated?</summary>
+        <p>Most of our journals are undated, so you can start on any day and pick them back up whenever you like &mdash; no guilt about skipped weeks. The planners follow a term or a week; the puzzle and colouring books aren&rsquo;t dated at all.</p>
+      </details>
+      <details>
+        <summary>What size are they?</summary>
+        <p>Generous, comfortable paperback sizes with room to write. The large-print puzzle books are 8.5 &times; 11 inches, chosen so the type stays easy on the eyes.</p>
+      </details>
+      <details>
+        <summary>How do I buy, and can I return one?</summary>
+        <p>Every book is sold and shipped by Amazon, so you get their delivery speed, secure checkout and easy returns. Tap &ldquo;Find on Amazon&rdquo; on any cover to see it on Amazon.co.uk.</p>
+      </details>
+      <details>
+        <summary>Do you do bulk or gift orders?</summary>
+        <p>Yes &mdash; for teams of 25 or more we offer direct bulk pricing, with custom inserts on orders of 100+. Drop us a line at <a href="mailto:hello@inklinestudio.co.uk?subject=Bulk%20order%20enquiry" style="color:inherit;">hello@inklinestudio.co.uk</a>.</p>
+      </details>
     </div>
   </div>
 </section>
