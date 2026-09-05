@@ -387,6 +387,90 @@
   .faq summary::after{ content:"+"; font-size:26px; opacity:.45; line-height:1; }
   .faq details[open] summary::after{ content:"\2013"; }
   .faq details p{ margin-top:14px; opacity:.75; line-height:1.7; font-size:16px; }
+
+  /* ═══════════════════════════════════════════════════════════
+     NIGHTSHELF — calm, modern, futuristic dark theme (2026)
+     Overrides the light palette site-wide. No markup changes.
+     ═══════════════════════════════════════════════════════════ */
+  :root{ --ink:#0C0F22; --ink2:#121633; --glow-indigo:rgba(120,134,220,.30); }
+  html{ background:#0C0F22; }
+  body{
+    color:#E8E4D6;
+    background:
+      radial-gradient(40% 30% at 18% 6%, rgba(110,122,205,.16), transparent 70%),
+      radial-gradient(42% 30% at 86% 20%, rgba(198,164,80,.08), transparent 72%),
+      radial-gradient(60% 46% at 50% 118%, rgba(60,74,150,.20), transparent 72%),
+      linear-gradient(180deg,#0C0F22 0%,#0F1330 46%,#0C1026 100%);
+    background-attachment:fixed;
+  }
+  /* faint star-grid texture across the whole page */
+  body::before{
+    content:''; position:fixed; inset:0; z-index:0; pointer-events:none; opacity:.5;
+    background-image:radial-gradient(rgba(255,255,255,.06) 1px, transparent 1px);
+    background-size:40px 40px;
+    -webkit-mask-image:radial-gradient(92% 72% at 50% 16%, #000, transparent 86%);
+            mask-image:radial-gradient(92% 72% at 50% 16%, #000, transparent 86%);
+  }
+  /* every section rides the shared dark background */
+  .hero, .books, .about, .for-teams, .faq, .newsletter, .contact, footer{
+    background:transparent; color:#E8E4D6;
+  }
+  .books::before, .for-teams::before{ background:none !important; }
+  h1, h2, h3{ color:#F3EEE2; }
+  .hero h1{ color:#F6F1E4; }
+  .about h2, .for-teams h2, .faq h2, .contact h2, .newsletter h2, .books h2{ color:#F6F1E4; }
+  .about p, .for-teams p, .contact p, .newsletter p{ color:rgba(232,228,214,.74); }
+  p.lead, .hero p.lead{ color:rgba(232,228,214,.68); }
+  .hero .wordmark{ color:#C6A450; }
+  .books .section-label, .tab-desc, .coming-soon{ color:#9AA0C8; }
+  /* buttons → warm gold, calm glow */
+  .btn-primary, .btn-on-cream, .contact button.btn-on-cream{
+    background:linear-gradient(180deg,#E8CE86,#C6A450); color:#0C0F22 !important;
+    border:none; box-shadow:0 0 42px rgba(198,164,80,.30);
+  }
+  .btn-primary:hover, .btn-on-cream:hover{ background:linear-gradient(180deg,#EFD895,#CBAA55); color:#0C0F22; opacity:1; }
+  .btn{ border-color:rgba(232,228,214,.45); }
+  /* imprint ribbon → glass chips; navy marks flipped light so they read on dark */
+  .pub-tab{ background:rgba(255,255,255,.06); border-color:rgba(255,255,255,.16); color:#D9D6C7; }
+  .pub-tab:hover{ background:rgba(255,255,255,.10); border-color:rgba(255,255,255,.34); box-shadow:0 10px 26px rgba(0,0,0,.35); }
+  .pub-tab.active{ background:rgba(198,164,80,.16); border-color:#C6A450; color:#F6EFDD; box-shadow:0 0 30px rgba(198,164,80,.22); }
+  .pub-tab img{ filter:brightness(0) invert(.88); opacity:.85; }
+  .pub-tab.active img{ filter:brightness(0) invert(1); opacity:1 !important; }
+  .pub-tab > span:first-child{ color:inherit; }
+  /* book covers float on a soft glow, no card */
+  .book-cover{ isolation:isolate; }
+  .book-cover::before{
+    content:''; position:absolute; left:50%; top:52%; width:122%; height:80%;
+    transform:translate(-50%,-50%); z-index:0; pointer-events:none;
+    background:radial-gradient(closest-side, var(--glow-indigo), transparent 70%); filter:blur(14px);
+  }
+  .book-cover img{ position:relative; z-index:1; filter:drop-shadow(0 22px 32px rgba(0,0,0,.6)) !important; }
+  .book:hover .book-cover img{ filter:drop-shadow(0 30px 46px rgba(0,0,0,.72)) !important; }
+  .book-cover.clickable:hover{ box-shadow:none; }
+  .book h3{ color:#F3EEE2; }
+  .book .meta{ color:#9AA0C8; opacity:1; }
+  .book a{ color:#E8E4D6; }
+  .book a:hover{ color:#E8CE86; opacity:1; }
+  .book a[href*="amazon"]::after{ color:rgba(232,228,214,.5); }
+  .trust-strip{ color:rgba(232,228,214,.6); }
+  /* forms + inputs */
+  .newsletter .form-area{ border-color:rgba(255,255,255,.16); background:rgba(255,255,255,.03); }
+  .newsletter .form-area a:not(.btn){ color:#E8CE86; }
+  .contact input, .contact textarea{ border-color:rgba(255,255,255,.18); color:#E8E4D6; background:rgba(255,255,255,.04); }
+  .contact input:focus, .contact textarea:focus{ border-color:#C6A450; }
+  .contact label{ color:#9AA0C8; }
+  .contact .or, .contact .or a{ color:#C9C6B8; }
+  .for-teams a.email{ color:#E8CE86; }
+  /* FAQ */
+  .faq details{ border-color:rgba(255,255,255,.12) !important; }
+  .faq summary{ color:#F3EEE2; }
+  .faq summary::after{ color:#C6A450; opacity:.85; }
+  .faq details p{ color:rgba(232,228,214,.72); }
+  /* footer */
+  footer{ border-top:1px solid rgba(255,255,255,.08); color:#9AA0C8; }
+  footer .footer-meta a{ color:#C9C6B8; }
+  /* keep hero aurora above the global grid */
+  .hero{ background:transparent; }
 </style>
 </head>
 <body>
