@@ -481,6 +481,18 @@
   .lb-page{ background:#fff; }
   .lb-page .page-body{ font-family:'Lora',Georgia,serif; font-size:17px; font-style:italic;
     line-height:1.6; color:#2A251E; padding:6px 2px 18px; }
+  /* Feather "look inside": cover + what-it-is + one real sample page */
+  .lb-cover{ text-align:center; margin-bottom:2px; }
+  .lb-cover img{ height:210px; width:auto; filter:drop-shadow(0 16px 26px rgba(60,48,32,.32)); }
+  .lb-about{ font-family:'Lora',Georgia,serif; font-size:15.5px; line-height:1.62; color:#3a342a; margin:18px 2px 22px; }
+  .lb-sample{ background:#fff; border:1px solid rgba(27,34,64,0.12); border-radius:6px; padding:22px 22px 20px; }
+  .lb-sample .page-label{ margin-bottom:12px; }
+  .lb-sample .page-body{ font-family:'Lora',Georgia,serif; font-style:normal; font-size:16px; line-height:1.6; color:#2A251E; padding:0; }
+  .science-box{ margin:16px 0 16px; padding:14px 16px; border-left:3px solid #B23A48;
+    background:rgba(178,58,72,0.06); font-size:14px; line-height:1.55; color:#43292c; }
+  .science-label{ display:block; font-family:system-ui,-apple-system,'Helvetica Neue',Arial,sans-serif;
+    font-weight:800; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:#B23A48; margin-bottom:6px; }
+  .lb-quote{ font-family:'Lora',Georgia,serif; font-style:italic; font-size:18px; color:#231F18; text-align:center; margin-top:4px; }
   /* tighten the space between the hero and the books section */
   .books{ padding-top:44px; }
   /* About as a handwritten note from the studio */
@@ -1341,29 +1353,35 @@
       images: ['images/interior/tw-paramedic-p1.png','images/interior/tw-paramedic-p2.png'], pages: [] },
     't-teacher': { title: '101 Things Only Teachers Will Find Funny', sub: 'Tinderwick Press', asin: 'B0H8Z2RMZ5',
       images: ['images/interior/tw-teacher-p1.png','images/interior/tw-teacher-p2.png'], pages: [] },
-    'bf1': { title: 'Deep Breath', sub: 'Feather Press', asin: 'B0HHWZ7V9Z',
-      images: [],
-      pages: [
-        { label: 'For a big day', body: 'Nerves are just care with nowhere to go yet. You would not feel them if it did not matter. Take the breath, and begin.' },
-        { label: 'The science, briefly', body: 'Slow, kind self-talk measurably lowers the body’s stress response. Not a platitude. Physiology.' },
-        { label: 'When it is a lot', body: 'You do not have to hold all of it at once. Put down what today does not need.' }
-      ]
+    'bf1': { kind: 'feather', title: 'Deep Breath', sub: 'Feather Press', asin: 'B0HHWZ7V9Z',
+      cover: 'images/feather-deepbreath-3d.png',
+      about: 'Not a book you read cover to cover. You keep it close and open to the one page that matches the day you are having. What makes it more than nice words: every page pairs a bit of encouragement with the actual psychology of why it is true.',
+      sample: {
+        moment: 'The job interview',
+        talk: 'They already like you enough to give up an afternoon for you, so the hard part is done. You do not have to be perfect. You have to be someone they would want a cup of tea with.',
+        science: 'Harvard’s Alison Wood Brooks had nervous people say two words out loud before performing: “I’m excited.” They did measurably better than those who tried to calm down, because excitement and nerves are the same racing engine pointed at a nicer thought.',
+        quote: 'They are hoping I’m the one.'
+      }
     },
-    'bf2': { title: 'Deep Breath: For New Mums', sub: 'Feather Press', asin: 'B0HHJX99BR',
-      images: [],
-      pages: [
-        { label: 'For the 3am feeds', body: 'No one is grading this. The baby does not need you perfect. It needs you here, and you are here.' },
-        { label: 'The foggy early days', body: 'The days blur because you are doing something enormous. Blurred is not the same as failing.' },
-        { label: 'A gentle reminder', body: 'You can find it hard and love them completely at the same time. Both are true.' }
-      ]
+    'bf2': { kind: 'feather', title: 'Deep Breath: For New Mums', sub: 'Feather Press', asin: 'B0HHJX99BR',
+      cover: 'images/feather-newmums-3d.png',
+      about: 'A steady little voice for the overwhelming, wonderful early days. Kept in a bag or by the cot, it opens to the moment you are in, and every page backs its encouragement with the psychology of why it is true.',
+      sample: {
+        moment: 'Telling your partner',
+        talk: 'There is no perfect way to say it, and there does not need to be. The moment makes itself. However it comes out, that is the right way.',
+        science: 'Sharing big news with someone you trust actually settles the nervous system. We are built to feel calmer and braver in good company, so facing this together measurably lightens the load.',
+        quote: 'We start this as a team.'
+      }
     },
-    'bf3': { title: 'Deep Breath: Before You Retire', sub: 'Feather Press', asin: 'B0HHNBSP5V',
-      images: [],
-      pages: [
-        { label: 'The last day', body: 'You are not being put out to pasture. You are being handed your own time back.' },
-        { label: 'The new chapter', body: 'Purpose does not clock off. It just changes shape. Give it a little while to settle.' },
-        { label: 'What you built', body: 'Years of showing up do not vanish on a Friday. They go with you into whatever is next.' }
-      ]
+    'bf3': { kind: 'feather', title: 'Deep Breath: Before You Retire', sub: 'Feather Press', asin: 'B0HHNBSP5V',
+      cover: 'images/feather-retire-3d.png',
+      about: 'Not a book about pensions, and certainly not about fading out. A small, steady voice for one of the biggest changes a life can hold: the day the work stops and your time becomes your own. Each page pairs encouragement with the psychology behind it.',
+      sample: {
+        moment: 'Handing in your notice',
+        talk: 'Saying the words out loud makes it real, and real can wobble the knees even when it is right. You are not letting anyone down by claiming the years you earned.',
+        science: 'The nerves before a big, irreversible step are normal, and not a sign it is wrong. They are just your body reacting to change. A slow breath out steadies you enough to say the thing plainly, which is all this moment asks.',
+        quote: 'I am claiming the years I earned.'
+      }
     }
   };
 
@@ -1384,6 +1402,22 @@
 
     var container = document.getElementById('lb-pages');
     container.innerHTML = '';
+
+    if (b.kind === 'feather') {
+      var s = b.sample;
+      container.innerHTML =
+        '<div class="lb-cover"><img src="' + b.cover + '" alt="' + b.title + '"></div>' +
+        '<div class="lb-about">' + b.about + '</div>' +
+        '<div class="lb-sample">' +
+          '<div class="page-label">A sample page &middot; ' + s.moment + '</div>' +
+          '<div class="page-body">' + s.talk + '</div>' +
+          '<div class="science-box"><span class="science-label">The science bit</span>' + s.science + '</div>' +
+          '<div class="lb-quote">&ldquo;' + s.quote + '&rdquo;</div>' +
+        '</div>';
+      document.getElementById('lightbox').classList.add('open');
+      document.body.style.overflow = 'hidden';
+      return;
+    }
 
     var useImages = b.images && b.images.length > 0;
     var items = useImages ? b.images : b.pages;
