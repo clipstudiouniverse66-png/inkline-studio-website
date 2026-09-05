@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Inkline Studio — Calm books, paper journals, quiet planners</title>
-<meta name="description" content="Inkline Studio designs calm paperback journals and minimal Notion templates. For people who'd rather think than be optimised. Designed in the United Kingdom.">
+<meta name="description" content="Inkline Studio designs calm paperback journals and gift books, made by a small studio of designers in the United Kingdom.">
 <meta name="p:domain_verify" content="e9b45455ac59b5a760ae5aa92aeabd86"/>
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -505,7 +505,7 @@
       Journals, planners, puzzles, nature books, and funny gift books &mdash; designed in the United Kingdom.
     </p>
 
-    <p class="narrow" style="text-align:center;font-size:14px;font-style:italic;opacity:0.45;margin-top:16px;margin-bottom:0;">Click any cover to look inside.</p>
+    <p class="narrow" style="text-align:center;font-size:14px;font-style:italic;opacity:0.45;margin-top:16px;margin-bottom:0;">Choose a press to explore each range.</p>
 
     <div class="trust-strip">
       <span>Designed in the United Kingdom</span>
@@ -516,7 +516,7 @@
 
     <!-- Publisher Tabs -->
     <div class="pub-tabs" role="tablist">
-      <button class="pub-tab active" data-tab="inkline" role="tab"><img src="images/logo-inkline.png" alt="" style="height:32px;width:auto;opacity:0.7;"><span>Inkline Studio</span></button>
+      <button class="pub-tab" data-tab="inkline" role="tab"><img src="images/logo-inkline.png" alt="" style="height:32px;width:auto;opacity:0.7;"><span>Inkline Studio</span></button>
       <button class="pub-tab" data-tab="pawline" role="tab"><img src="images/logo-pawline.png" alt="" style="height:32px;width:auto;opacity:0.7;"><span>Pawline Press</span></button>
       <button class="pub-tab" data-tab="kettle" role="tab"><img src="images/logo-kettle.png" alt="" style="height:32px;width:auto;opacity:0.7;"><span>Kettle Press</span></button>
       <button class="pub-tab" data-tab="heather" role="tab"><img src="images/logo-heather.png" alt="" style="height:32px;width:auto;opacity:0.7;"><span>Heather Press</span></button>
@@ -524,8 +524,51 @@
       <button class="pub-tab" data-tab="feather" role="tab"><img src="images/logo-feather.png" alt="" style="height:32px;width:auto;opacity:0.7;"><span>Feather Press</span></button>
     </div>
 
+    <!-- Featured selection (homepage default) -->
+    <div class="tab-panel active" id="tab-featured">
+      <p class="tab-desc">A selection from across the six imprints. Choose a press above to see each full range.</p>
+      <div class="books-grid">
+        <div class="book">
+          <div class="book-cover"><img src="images/feather-deepbreath-3d.png" alt="Deep Breath"></div>
+          <h3>Deep Breath</h3>
+          <div class="meta">Feather Press</div>
+          <a href="https://www.amazon.co.uk/dp/B0HHWZ7V9Z" target="_blank" rel="noopener">Find on Amazon &rarr;</a>
+        </div>
+        <div class="book">
+          <div class="book-cover"><img src="images/book3-3d.png" alt="The Calm Reading Journal"></div>
+          <h3>The Calm Reading Journal</h3>
+          <div class="meta">Inkline Studio</div>
+          <a href="https://www.amazon.co.uk/dp/B0GZKDNTY3" target="_blank" rel="noopener">Find on Amazon &rarr;</a>
+        </div>
+        <div class="book">
+          <div class="book-cover"><img src="images/tinderwick-nurse-3d.png" alt="101 Things Only Nurses Will Find Funny"></div>
+          <h3>101 Things Only Nurses Will Find Funny</h3>
+          <div class="meta">Tinderwick Press</div>
+          <a href="https://www.amazon.co.uk/dp/B0H8SQ6QM7" target="_blank" rel="noopener">Find on Amazon &rarr;</a>
+        </div>
+        <div class="book">
+          <div class="book-cover"><img src="images/heather-1-3d.png" alt="Botanical Flowers"></div>
+          <h3>Botanical Flowers</h3>
+          <div class="meta">Heather Press</div>
+          <a href="https://www.amazon.co.uk/dp/B0H3LLWNR8" target="_blank" rel="noopener">Find on Amazon &rarr;</a>
+        </div>
+        <div class="book">
+          <div class="book-cover"><img src="images/pawline-1-3d.png" alt="The Dog Life Journal"></div>
+          <h3>The Dog Life Journal</h3>
+          <div class="meta">Pawline Press</div>
+          <a href="https://www.amazon.co.uk/dp/B0H2LP3FQC" target="_blank" rel="noopener">Find on Amazon &rarr;</a>
+        </div>
+        <div class="book">
+          <div class="book-cover"><img src="images/kettle-1-3d.png" alt="The Calm Puzzle Collection Volume One"></div>
+          <h3>The Calm Puzzle Collection</h3>
+          <div class="meta">Kettle Press</div>
+          <a href="https://www.amazon.co.uk/dp/B0H2XJLCK7" target="_blank" rel="noopener">Find on Amazon &rarr;</a>
+        </div>
+      </div>
+    </div>
+
     <!-- Inkline Studio -->
-    <div class="tab-panel active" id="tab-inkline">
+    <div class="tab-panel" id="tab-inkline">
       <p class="tab-desc">Calm journals and quiet planners. Cream paper, navy type, no app required.</p>
       <div class="books-grid">
 
@@ -989,12 +1032,9 @@
 <section class="about" id="about">
   <div class="narrow">
     <div class="wordmark">About Inkline</div>
-    <h2>The work resists optimisation.</h2>
-    <p>Inkline Studio designs calm paperback journals and minimal Notion templates for people quietly tired of being measured by their tools.</p>
-    <p>We are a small team of designers in the United Kingdom, not a content factory. We design and produce every book ourselves, the kind we would actually use, and we care about the small things that make one worth keeping: the paper, the margins, the weight in your hand, and the quiet on the page.</p>
-    <p>The thesis is small: that the readers, the students, the working professionals, the people doing thoughtful work tend to be the ones who reach for paper. So we make paper worth reaching for &mdash; cream pages, navy serif typography, and pages that don't ask you to optimise yourself in order to use them.</p>
-    <p>No app pairings. No streaks. No motivational quotes. No &ldquo;you&rsquo;re behind on your goal&rdquo; notifications. The journal sits on your shelf and waits.</p>
-    <p>Designed in the United Kingdom. Printed by Amazon KDP on cream paper.</p>
+    <h2>Made to be kept.</h2>
+    <p>Inkline Studio is a small studio of designers in Britain. We draw, typeset and make every book ourselves.</p>
+    <p>Our standard is a quiet one: paper worth writing on, margins that let the page breathe, and nothing that asks more of you than the work itself. Designed and made in the United Kingdom.</p>
     <div class="hedera">&#10087;</div>
   </div>
 </section>
