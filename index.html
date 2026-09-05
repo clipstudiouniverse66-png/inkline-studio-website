@@ -75,13 +75,13 @@
   /* HERO */
   .hero {
     background: var(--navy); color: var(--cream);
-    min-height: 64vh; display: flex; flex-direction: column;
-    justify-content: center; text-align: center; padding: 72px 24px 60px;
+    min-height: 50vh; display: flex; flex-direction: column;
+    justify-content: center; text-align: center; padding: 60px 24px 104px;
   }
   .hero .wordmark { color: var(--cream); margin-bottom: 32px; }
   .hero h1 { color: var(--cream); }
   .hero p.lead { color: var(--cream-soft); max-width: 540px; margin: 24px auto 48px; }
-  .hero .hedera { color: var(--cream); margin-top: 44px; }
+  .hero .hedera { color: var(--cream); margin-top: 26px; }
 
   /* BOOKS */
   .books { background: var(--cream); color: var(--navy); }
@@ -340,6 +340,12 @@
   }
   @keyframes aurora{ from{transform:translate3d(-2%,-1%,0) scale(1);} to{transform:translate3d(2%,2%,0) scale(1.08);} }
   .hero > *{ position:relative; z-index:1; }
+  /* soft fade from navy hero into the cream page below */
+  .hero::after{
+    content:''; position:absolute; left:0; right:0; bottom:0; height:150px; z-index:0;
+    pointer-events:none;
+    background: linear-gradient(180deg, rgba(27,34,64,0) 0%, rgba(27,34,64,0.55) 55%, var(--cream) 100%);
+  }
   /* soft top glow on cream sections */
   .books::before, .for-teams::before{
     content:''; position:absolute; inset:0; z-index:0; pointer-events:none;
