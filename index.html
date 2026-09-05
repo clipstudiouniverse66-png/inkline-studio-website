@@ -75,13 +75,13 @@
   /* HERO */
   .hero {
     background: var(--navy); color: var(--cream);
-    min-height: 100vh; display: flex; flex-direction: column;
-    justify-content: center; text-align: center; padding: 80px 24px;
+    min-height: 64vh; display: flex; flex-direction: column;
+    justify-content: center; text-align: center; padding: 72px 24px 60px;
   }
   .hero .wordmark { color: var(--cream); margin-bottom: 32px; }
   .hero h1 { color: var(--cream); }
   .hero p.lead { color: var(--cream-soft); max-width: 540px; margin: 24px auto 48px; }
-  .hero .hedera { color: var(--cream); margin-top: 80px; }
+  .hero .hedera { color: var(--cream); margin-top: 44px; }
 
   /* BOOKS */
   .books { background: var(--cream); color: var(--navy); }
@@ -203,26 +203,38 @@
 
   /* Publisher Tabs */
   .pub-tabs {
-    display: flex; justify-content: center; gap: 0;
-    justify-content: safe center;   /* fall back to flex-start when tabs overflow so the first (Inkline) tab stays reachable */
-    border-bottom: 1px solid var(--rule-dark); margin: 48px 0 0;
-    overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    scroll-padding-inline: 16px;
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 9px;
+    margin: 44px auto 0; max-width: 1060px; padding: 0 12px;
   }
-  .pub-tabs::-webkit-scrollbar { display: none; }
   .pub-tab {
-    display: flex; flex-direction: column; align-items: center; gap: 6px;
-    font-family: 'Lora', Georgia, serif; font-size: 13px;
-    letter-spacing: 0.18em; text-transform: uppercase;
-    background: none; border: none; border-bottom: 2px solid transparent;
-    color: var(--navy); padding: 14px 28px; cursor: pointer;
-    opacity: 0.45; transition: opacity 0.2s ease, border-color 0.2s ease;
-    white-space: nowrap; margin-bottom: -1px;
+    display: flex; flex-direction: column; align-items: center; gap: 7px;
+    font-family: 'Lora', Georgia, serif; font-size: 12px;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    background: rgba(27,34,64,0.045);
+    border: 1px solid rgba(27,34,64,0.16);
+    border-radius: 12px;
+    color: var(--navy); padding: 13px 16px 11px; cursor: pointer;
+    transition: background .25s ease, border-color .25s ease, transform .25s ease, box-shadow .25s ease;
+    white-space: nowrap;
   }
-  .pub-tab:hover { opacity: 0.8; }
-  .pub-tab.active { opacity: 1; border-bottom: 2px solid var(--navy); }
-  .pub-tab.active img { opacity: 1 !important; }
+  /* small chevron hints the tab opens its shelf below */
+  .pub-tab::after {
+    content: ""; width: 7px; height: 7px; margin-top: 3px;
+    border-right: 2px solid currentColor; border-bottom: 2px solid currentColor;
+    transform: rotate(45deg); opacity: 0.4;
+    transition: transform .25s ease, opacity .25s ease;
+  }
+  .pub-tab:hover {
+    background: rgba(27,34,64,0.09); border-color: rgba(27,34,64,0.4);
+    transform: translateY(-2px); box-shadow: 0 8px 18px rgba(27,34,64,0.10);
+  }
+  .pub-tab.active {
+    background: #fff; border-color: var(--navy);
+    box-shadow: 0 10px 24px rgba(27,34,64,0.14);
+  }
+  .pub-tab.active::after { transform: rotate(-135deg); opacity: 0.85; }
+  .pub-tab.active img,
+  .pub-tab.active > span:first-child { opacity: 1 !important; }
   .tab-panel { display: none; }
   .tab-panel.active { display: block; }
   .tab-desc {
@@ -301,8 +313,8 @@
   @media (max-width: 600px) {
     section { padding: 80px 20px; }
     p.lead { font-size: 19px; }
-    .pub-tabs { justify-content: flex-start; }
-    .pub-tab { display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 12px 18px; font-size: 12px; }
+    .pub-tabs { gap: 8px; }
+    .pub-tab { padding: 11px 16px; font-size: 11.5px; letter-spacing: 0.1em; }
     .books-grid { grid-template-columns: repeat(2, 1fr); gap: 32px 16px; }
     .books-grid-2 { grid-template-columns: repeat(2, 1fr); gap: 32px 16px; }
     .books-grid-4 { grid-template-columns: repeat(2, 1fr); gap: 32px 16px; }
@@ -344,7 +356,7 @@
   /* smoother tab-panel entrance */
   .tab-panel.active{ animation: panelIn .6s cubic-bezier(.2,.7,.2,1) both; }
   @keyframes panelIn{ from{opacity:0; transform:translateY(16px);} to{opacity:1; transform:none;} }
-  .pub-tab{ transition: opacity .25s ease, border-color .25s ease; border-radius: 6px 6px 0 0; }
+  .pub-tab{ border-radius: 12px; }
   /* softer, modern buttons + links */
   .btn{ border-radius: 999px; }
   .book a{ display:inline-block; transition: letter-spacing .3s ease, opacity .2s ease; }
