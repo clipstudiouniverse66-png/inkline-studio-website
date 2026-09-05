@@ -204,7 +204,9 @@
   /* Publisher Tabs */
   .pub-tabs {
     display: flex; flex-wrap: wrap; justify-content: center; gap: 8px;
-    margin: 44px auto 0; max-width: 1100px; padding: 0;
+    margin: 44px 0 0; padding: 0;
+    position: relative; left: 50%; transform: translateX(-50%);
+    width: min(1120px, 94vw); max-width: none;
   }
   .pub-tab {
     display: flex; flex-direction: column; align-items: center; justify-content: flex-start; gap: 7px;
@@ -516,6 +518,7 @@
 
     <!-- Publisher Tabs -->
     <div class="pub-tabs" role="tablist">
+      <button class="pub-tab active" data-tab="featured" role="tab"><span style="display:block;height:32px;line-height:32px;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" style="vertical-align:middle;opacity:0.85;"><rect x="3" y="3" width="7" height="7" rx="1.6" stroke="currentColor" stroke-width="1.6"/><rect x="14" y="3" width="7" height="7" rx="1.6" stroke="currentColor" stroke-width="1.6"/><rect x="3" y="14" width="7" height="7" rx="1.6" stroke="currentColor" stroke-width="1.6"/><rect x="14" y="14" width="7" height="7" rx="1.6" stroke="currentColor" stroke-width="1.6"/></svg></span><span>Selection</span></button>
       <button class="pub-tab" data-tab="inkline" role="tab"><img src="images/logo-inkline.png" alt="" style="height:32px;width:auto;opacity:0.7;"><span>Inkline Studio</span></button>
       <button class="pub-tab" data-tab="pawline" role="tab"><img src="images/logo-pawline.png" alt="" style="height:32px;width:auto;opacity:0.7;"><span>Pawline Press</span></button>
       <button class="pub-tab" data-tab="kettle" role="tab"><img src="images/logo-kettle.png" alt="" style="height:32px;width:auto;opacity:0.7;"><span>Kettle Press</span></button>
