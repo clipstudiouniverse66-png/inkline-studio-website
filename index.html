@@ -479,6 +479,8 @@
   .lb-inner .page-label, .lb-inner .page-prompt, .lb-inner .page-hedera,
   .lb-inner .lb-note, .lb-close, .lb-footer a{ color:#231F18; }
   .lb-page{ background:#fff; }
+  .lb-page .page-body{ font-family:'Lora',Georgia,serif; font-size:17px; font-style:italic;
+    line-height:1.6; color:#2A251E; padding:6px 2px 18px; }
   /* tighten the space between the hero and the books section */
   .books{ padding-top:44px; }
   /* About as a handwritten note from the studio */
@@ -538,19 +540,19 @@
       <p class="tab-desc">New from Feather Press, our little pep-talk gift books. Choose a press above to explore the full range.</p>
       <div class="books-grid">
         <div class="book">
-          <div class="book-cover"><img src="images/feather-deepbreath-3d.png" alt="Deep Breath"></div>
+          <div class="book-cover clickable" onclick="openLb('bf1')"><img src="images/feather-deepbreath-3d.png" alt="Deep Breath"><div class="peek-hint"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#F5EFE0" stroke-width="1.2"/><line x1="6" y1="3" x2="6" y2="9" stroke="#F5EFE0" stroke-width="1.2"/><line x1="3" y1="6" x2="9" y2="6" stroke="#F5EFE0" stroke-width="1.2"/></svg><span>Peek inside</span></div></div>
           <h3>Deep Breath</h3>
           <div class="meta">Feather Press</div>
           <a href="https://www.amazon.co.uk/dp/B0HHWZ7V9Z" target="_blank" rel="noopener">Find on Amazon &rarr;</a>
         </div>
         <div class="book">
-          <div class="book-cover"><img src="images/feather-newmums-3d.png" alt="Deep Breath: For New Mums"></div>
+          <div class="book-cover clickable" onclick="openLb('bf2')"><img src="images/feather-newmums-3d.png" alt="Deep Breath: For New Mums"><div class="peek-hint"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#F5EFE0" stroke-width="1.2"/><line x1="6" y1="3" x2="6" y2="9" stroke="#F5EFE0" stroke-width="1.2"/><line x1="3" y1="6" x2="9" y2="6" stroke="#F5EFE0" stroke-width="1.2"/></svg><span>Peek inside</span></div></div>
           <h3>Deep Breath: For New Mums</h3>
           <div class="meta">Feather Press</div>
           <a href="https://www.amazon.co.uk/dp/B0HHJX99BR" target="_blank" rel="noopener">Find on Amazon &rarr;</a>
         </div>
         <div class="book">
-          <div class="book-cover"><img src="images/feather-retire-3d.png" alt="Deep Breath: Before You Retire"></div>
+          <div class="book-cover clickable" onclick="openLb('bf3')"><img src="images/feather-retire-3d.png" alt="Deep Breath: Before You Retire"><div class="peek-hint"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#F5EFE0" stroke-width="1.2"/><line x1="6" y1="3" x2="6" y2="9" stroke="#F5EFE0" stroke-width="1.2"/><line x1="3" y1="6" x2="9" y2="6" stroke="#F5EFE0" stroke-width="1.2"/></svg><span>Peek inside</span></div></div>
           <h3>Deep Breath: Before You Retire</h3>
           <div class="meta">Feather Press</div>
           <a href="https://www.amazon.co.uk/dp/B0HHNBSP5V" target="_blank" rel="noopener">Find on Amazon &rarr;</a>
@@ -993,21 +995,21 @@
       <p class="gift-note">For the moment someone needs it</p>
       <div class="books-grid">
         <div class="book">
-          <div class="book-cover"><img src="images/feather-deepbreath-3d.png" alt="Deep Breath"></div>
+          <div class="book-cover clickable" onclick="openLb('bf1')"><img src="images/feather-deepbreath-3d.png" alt="Deep Breath"><div class="peek-hint"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#F5EFE0" stroke-width="1.2"/><line x1="6" y1="3" x2="6" y2="9" stroke="#F5EFE0" stroke-width="1.2"/><line x1="3" y1="6" x2="9" y2="6" stroke="#F5EFE0" stroke-width="1.2"/></svg><span>Peek inside</span></div></div>
           <h3>Deep Breath</h3>
           <p class="book-hook">Little pep-talks for life's big moments, backed by real psychology. A calm voice for the exact day someone needs it.</p>
           <div class="meta">Paperback &middot; &pound;14.99</div>
           <a href="https://www.amazon.co.uk/dp/B0HHWZ7V9Z" target="_blank" rel="noopener">Find on Amazon &rarr;</a>
         </div>
         <div class="book">
-          <div class="book-cover"><img src="images/feather-newmums-3d.png" alt="Deep Breath: For New Mums"></div>
+          <div class="book-cover clickable" onclick="openLb('bf2')"><img src="images/feather-newmums-3d.png" alt="Deep Breath: For New Mums"><div class="peek-hint"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#F5EFE0" stroke-width="1.2"/><line x1="6" y1="3" x2="6" y2="9" stroke="#F5EFE0" stroke-width="1.2"/><line x1="3" y1="6" x2="9" y2="6" stroke="#F5EFE0" stroke-width="1.2"/></svg><span>Peek inside</span></div></div>
           <h3>Deep Breath: For New Mums</h3>
           <p class="book-hook">For the overwhelming, wonderful early days. A steady voice for a new or expecting mum, backed by real psychology.</p>
           <div class="meta">Paperback &middot; &pound;14.99</div>
           <a href="https://www.amazon.co.uk/dp/B0HHJX99BR" target="_blank" rel="noopener">Find on Amazon &rarr;</a>
         </div>
         <div class="book">
-          <div class="book-cover"><img src="images/feather-retire-3d.png" alt="Deep Breath: Before You Retire"></div>
+          <div class="book-cover clickable" onclick="openLb('bf3')"><img src="images/feather-retire-3d.png" alt="Deep Breath: Before You Retire"><div class="peek-hint"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#F5EFE0" stroke-width="1.2"/><line x1="6" y1="3" x2="6" y2="9" stroke="#F5EFE0" stroke-width="1.2"/><line x1="3" y1="6" x2="9" y2="6" stroke="#F5EFE0" stroke-width="1.2"/></svg><span>Peek inside</span></div></div>
           <h3>Deep Breath: Before You Retire</h3>
           <p class="book-hook">For the last day and the new chapter. A calm voice for anyone about to retire, backed by real psychology.</p>
           <div class="meta">Paperback &middot; &pound;14.99</div>
@@ -1132,7 +1134,7 @@
     <div class="lb-sub" id="lb-sub"></div>
     <div class="lb-pages" id="lb-pages"></div>
     <div class="lb-footer">
-      <span class="lb-note">Cream paper &middot; Navy serif &middot; Undated</span>
+      <span class="lb-note" id="lb-note">Cream paper &middot; Navy serif &middot; Undated</span>
       <a id="lb-amazon" href="#" target="_blank" rel="noopener">Find on Amazon &rarr;</a>
     </div>
   </div>
@@ -1338,13 +1340,40 @@
     't-paramedic': { title: '101 Things Only Paramedics Will Find Funny', sub: 'Tinderwick Press', asin: 'B0H8Z4NBYB',
       images: ['images/interior/tw-paramedic-p1.png','images/interior/tw-paramedic-p2.png'], pages: [] },
     't-teacher': { title: '101 Things Only Teachers Will Find Funny', sub: 'Tinderwick Press', asin: 'B0H8Z2RMZ5',
-      images: ['images/interior/tw-teacher-p1.png','images/interior/tw-teacher-p2.png'], pages: [] }
+      images: ['images/interior/tw-teacher-p1.png','images/interior/tw-teacher-p2.png'], pages: [] },
+    'bf1': { title: 'Deep Breath', sub: 'Feather Press', asin: 'B0HHWZ7V9Z',
+      images: [],
+      pages: [
+        { label: 'For a big day', body: 'Nerves are just care with nowhere to go yet. You would not feel them if it did not matter. Take the breath, and begin.' },
+        { label: 'The science, briefly', body: 'Slow, kind self-talk measurably lowers the body’s stress response. Not a platitude. Physiology.' },
+        { label: 'When it is a lot', body: 'You do not have to hold all of it at once. Put down what today does not need.' }
+      ]
+    },
+    'bf2': { title: 'Deep Breath: For New Mums', sub: 'Feather Press', asin: 'B0HHJX99BR',
+      images: [],
+      pages: [
+        { label: 'For the 3am feeds', body: 'No one is grading this. The baby does not need you perfect. It needs you here, and you are here.' },
+        { label: 'The foggy early days', body: 'The days blur because you are doing something enormous. Blurred is not the same as failing.' },
+        { label: 'A gentle reminder', body: 'You can find it hard and love them completely at the same time. Both are true.' }
+      ]
+    },
+    'bf3': { title: 'Deep Breath: Before You Retire', sub: 'Feather Press', asin: 'B0HHNBSP5V',
+      images: [],
+      pages: [
+        { label: 'The last day', body: 'You are not being put out to pasture. You are being handed your own time back.' },
+        { label: 'The new chapter', body: 'Purpose does not clock off. It just changes shape. Give it a little while to settle.' },
+        { label: 'What you built', body: 'Years of showing up do not vanish on a Friday. They go with you into whatever is next.' }
+      ]
+    }
   };
 
   function openLb(id) {
     var b = BOOKS[id];
     document.getElementById('lb-title').textContent = b.title;
     document.getElementById('lb-sub').textContent = b.sub;
+    document.getElementById('lb-note').textContent = (b.sub === 'Feather Press')
+      ? 'Feather Press · Little pep-talks, and the psychology behind them'
+      : 'Cream paper · Navy serif · Undated';
     var amzEl = document.getElementById('lb-amazon');
     if (b.asin) {
       amzEl.href = 'https://www.amazon.co.uk/dp/' + b.asin;
@@ -1367,6 +1396,12 @@
         img.src = item;
         img.alt = b.title + ' interior page';
         pg.appendChild(img);
+      } else if (item.body) {
+        pg.className = 'lb-page';
+        pg.innerHTML =
+          '<div class="page-label">' + item.label + '</div>' +
+          '<div class="page-body">' + item.body + '</div>' +
+          '<div class="page-hedera">&#10087;</div>';
       } else {
         pg.className = 'lb-page';
         var lines = '';
