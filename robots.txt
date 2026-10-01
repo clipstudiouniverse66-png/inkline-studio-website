@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://inklinestudio.co.uk/sitemap.xml
